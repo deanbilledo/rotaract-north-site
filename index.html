@@ -4,169 +4,627 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rotaract Club of Zamboanga City North</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        'inter': ['Inter', 'sans-serif'],
+      },
+      colors: {
+        'rotaract-primary': '#e91e63',
+        'rotaract-secondary': '#ff6b35',
+      },
+      screens: {
+        'xs': '480px',
+      }
+    }
+  }
+}
+</script>
 
 </head>
-<body>
+<body class="font-inter bg-gray-50 scroll-smooth">
+<!-- Scroll Progress Indicator -->
+<div class="scroll-indicator"></div>
+
 <!-- Navigation -->
-<nav class="navbar">
-    <div class="nav-container">
-        <a href="#home" class="logo">
-            <div class="">
-                <img src="img/rotaract-logo.png" alt="Rotaract Club Logo" class="logo-image">
+<nav class="fixed top-0 left-1/2 transform -translate-x-1/2 w-[95%] xs:w-11/12 max-w-6xl bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl mt-2 xs:mt-4 z-50 transition-all duration-300" id="navbar">
+    <div class="px-3 xs:px-4 sm:px-6 py-2 xs:py-3">
+        <div class="flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#home" class="flex items-center space-x-2 xs:space-x-3 group min-w-0 flex-shrink-0">
+                <div class="relative">
+                    <img src="img/rotaract-logo.png" alt="Rotaract Club Logo" class="h-8 xs:h-10 sm:h-12 w-auto object-contain rounded-lg transition-transform group-hover:scale-105">
+                </div>
+                <span class="text-white font-bold text-sm xs:text-base sm:text-lg hidden xs:block truncate">Rotaract North</span>
+            </a>
+            
+            <!-- Desktop Navigation (Large screens) -->
+            <ul class="hidden xl:flex items-center space-x-6">
+                <li><a href="#home" class="nav-link text-white/90 hover:text-white font-medium transition-all duration-200 px-4 py-2 rounded-lg hover:bg-white/10 relative group">
+                    Home
+                    <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-rotaract-primary to-rotaract-secondary transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
+                </a></li>
+                <li><a href="#about" class="nav-link text-white/90 hover:text-white font-medium transition-all duration-200 px-4 py-2 rounded-lg hover:bg-white/10 relative group">
+                    About
+                    <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-rotaract-primary to-rotaract-secondary transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
+                </a></li>
+                <li><a href="#officers" class="nav-link text-white/90 hover:text-white font-medium transition-all duration-200 px-4 py-2 rounded-lg hover:bg-white/10 relative group">
+                    Officers
+                    <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-rotaract-primary to-rotaract-secondary transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
+                </a></li>
+                <li><a href="#projects" class="nav-link text-white/90 hover:text-white font-medium transition-all duration-200 px-4 py-2 rounded-lg hover:bg-white/10 relative group">
+                    Projects
+                    <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-rotaract-primary to-rotaract-secondary transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
+                </a></li>
+                <li><a href="#gallery" class="nav-link text-white/90 hover:text-white font-medium transition-all duration-200 px-4 py-2 rounded-lg hover:bg-white/10 relative group">
+                    Gallery
+                    <span class="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-rotaract-primary to-rotaract-secondary transition-all duration-300 group-hover:w-full group-hover:left-0"></span>
+                </a></li>
+                <li><a href="#contact" class="nav-link bg-gradient-to-r from-rotaract-primary to-rotaract-secondary text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg hover:shadow-rotaract-primary/25 transform hover:-translate-y-0.5 hover:scale-105 transition-all duration-200">Contact</a></li>
+            </ul>
+            
+            <!-- Tablet Navigation (Medium-Large screens) -->
+            <ul class="hidden lg:flex xl:hidden items-center space-x-2">
+                <li><a href="#home" class="nav-link text-white/90 hover:text-white font-medium transition-all duration-200 px-3 py-2 rounded-lg hover:bg-white/10 text-sm">Home</a></li>
+                <li><a href="#about" class="nav-link text-white/90 hover:text-white font-medium transition-all duration-200 px-3 py-2 rounded-lg hover:bg-white/10 text-sm">About</a></li>
+                <li><a href="#officers" class="nav-link text-white/90 hover:text-white font-medium transition-all duration-200 px-3 py-2 rounded-lg hover:bg-white/10 text-sm">Officers</a></li>
+                <li><a href="#projects" class="nav-link text-white/90 hover:text-white font-medium transition-all duration-200 px-3 py-2 rounded-lg hover:bg-white/10 text-sm">Projects</a></li>
+                <li><a href="#gallery" class="nav-link text-white/90 hover:text-white font-medium transition-all duration-200 px-3 py-2 rounded-lg hover:bg-white/10 text-sm">Gallery</a></li>
+                <li><a href="#contact" class="nav-link bg-gradient-to-r from-rotaract-primary to-rotaract-secondary text-white px-4 py-2 rounded-full font-semibold hover:shadow-lg hover:shadow-rotaract-primary/25 transform hover:-translate-y-0.5 hover:scale-105 transition-all duration-200 text-sm">Contact</a></li>
+            </ul>
+            
+            <!-- Mobile Menu Button -->
+            <button class="lg:hidden mobile-menu text-white p-2 rounded-lg hover:bg-white/10 transition-all duration-200 flex-shrink-0" aria-label="Toggle Menu">
+                <div class="w-5 xs:w-6 h-5 xs:h-6 flex flex-col justify-center items-center">
+                    <span class="w-full h-0.5 bg-white mb-1 transition-all duration-300"></span>
+                    <span class="w-full h-0.5 bg-white mb-1 transition-all duration-300"></span>
+                    <span class="w-full h-0.5 bg-white transition-all duration-300"></span>
+                </div>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div class="lg:hidden nav-links hidden mt-3 pt-3 border-t border-white/20">
+            <div class="flex flex-col space-y-1 xs:space-y-2">
+                <a href="#home" class="text-white/90 hover:text-white font-medium py-2 xs:py-3 px-3 xs:px-4 rounded-lg hover:bg-white/10 transition-all duration-200 text-sm xs:text-base">Home</a>
+                <a href="#about" class="text-white/90 hover:text-white font-medium py-2 xs:py-3 px-3 xs:px-4 rounded-lg hover:bg-white/10 transition-all duration-200 text-sm xs:text-base">About</a>
+                <a href="#officers" class="text-white/90 hover:text-white font-medium py-2 xs:py-3 px-3 xs:px-4 rounded-lg hover:bg-white/10 transition-all duration-200 text-sm xs:text-base">Officers</a>
+                <a href="#projects" class="text-white/90 hover:text-white font-medium py-2 xs:py-3 px-3 xs:px-4 rounded-lg hover:bg-white/10 transition-all duration-200 text-sm xs:text-base">Projects</a>
+                <a href="#gallery" class="text-white/90 hover:text-white font-medium py-2 xs:py-3 px-3 xs:px-4 rounded-lg hover:bg-white/10 transition-all duration-200 text-sm xs:text-base">Gallery</a>
+                <a href="#contact" class="bg-gradient-to-r from-rotaract-primary to-rotaract-secondary text-white px-4 xs:px-6 py-2 xs:py-3 rounded-full font-semibold text-center mt-2 text-sm xs:text-base transition-all duration-200 hover:shadow-lg hover:scale-[1.02]">Contact</a>
             </div>
-            <span>
-                
-            </span>
-        </a>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#officers">Officers</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#join">Join Us</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <div class="mobile-menu">
-            <span></span>
-            <span></span>
-            <span></span>
         </div>
     </div>
 </nav>
 
 <!-- Hero Section -->
-<section id="home" class="hero">
-    <div class="hero-content">
-        <h1>Rotaract Club of Zamboanga City North</h1>
-        <p>Unite for Good - Building Leaders, Serving Communities</p>
-        <a href="#join" class="cta-button">Join Our Mission</a>
+<section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Enhanced Background -->
+    <div class="absolute inset-0 bg-gradient-to-br from-rotaract-primary via-purple-600 to-rotaract-secondary"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/10"></div>
+    
+    <!-- Floating Particles -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute top-1/4 left-1/4 w-2 h-2 bg-white/30 rounded-full animate-float"></div>
+        <div class="absolute top-1/3 right-1/4 w-1 h-1 bg-white/40 rounded-full animate-float-delayed"></div>
+        <div class="absolute bottom-1/4 left-1/3 w-3 h-3 bg-white/20 rounded-full animate-float-slow"></div>
+        <div class="absolute top-1/2 right-1/3 w-1.5 h-1.5 bg-white/35 rounded-full animate-float"></div>
+    </div>
+    
+    <!-- Animated Background Elements -->
+    <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-white/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-spin-slow"></div>
+    </div>
+    
+    <!-- Content -->
+    <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+        <div class="mb-8 opacity-0 animate-fadeInUp" style="animation-delay: 0.2s; animation-fill-mode: forwards;">
+            <span class="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium border border-white/20 hover:bg-white/30 transition-all duration-300 cursor-default">
+                <i class="fas fa-heart mr-2 text-red-300 animate-pulse"></i>
+                Building Leaders, Serving Communities
+                <i class="fas fa-sparkles ml-2 text-yellow-300"></i>
+            </span>
+        </div>
+        <h1 class="text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 md:mb-8 leading-tight opacity-0 animate-fadeInUp" style="animation-delay: 0.4s; animation-fill-mode: forwards;">
+            <span class="block bg-gradient-to-r from-yellow-300 via-orange-300 to-pink-300 bg-clip-text text-transparent animate-pulse">
+            Rotaract Club of Zamboanga City North
+            </span>
+        </h1>
+        <p class="text-lg sm:text-xl md:text-2xl text-white/90 mb-8 md:mb-12 max-w-3xl mx-auto leading-relaxed opacity-0 animate-fadeInUp px-4 sm:px-0" style="animation-delay: 0.6s; animation-fill-mode: forwards;">
+            Unite for Good - Empowering youth to create positive change in our communities through service, leadership, and fellowship.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center opacity-0 animate-fadeInUp px-4 sm:px-0" style="animation-delay: 0.8s; animation-fill-mode: forwards;">
+            <a href="#contact" class="group relative bg-white text-rotaract-primary px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:bg-gray-100 transform hover:-translate-y-1 transition-all duration-300 shadow-2xl hover:shadow-white/20 overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-r from-rotaract-primary to-rotaract-secondary opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                <span class="relative mr-2">Join Our Mission</span>
+                <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform duration-200"></i>
+            </a>
+            <a href="#about" class="group relative border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:bg-white hover:text-rotaract-primary transform hover:-translate-y-1 transition-all duration-300 overflow-hidden">
+                <div class="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                <span class="relative mr-2">Learn More</span>
+                <i class="fas fa-play group-hover:translate-x-1 transition-transform duration-200"></i>
+            </a>
+        </div>
+        
+        <!-- Enhanced Stats with Animations -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mt-12 md:mt-16 opacity-0 animate-fadeInUp px-4 sm:px-0" style="animation-delay: 1s; animation-fill-mode: forwards;">
+            <div class="text-center group cursor-default">
+                <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-1 md:mb-2 counter" data-target="1500">0</div>
+                <div class="text-white/80 text-xs sm:text-sm md:text-base group-hover:text-white transition-colors duration-200">Members</div>
+                <div class="w-6 md:w-8 h-0.5 bg-gradient-to-r from-yellow-300 to-orange-300 mx-auto mt-1 md:mt-2 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+            </div>
+            <div class="text-center group cursor-default">
+                <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-1 md:mb-2 counter" data-target="50">0</div>
+                <div class="text-white/80 text-xs sm:text-sm md:text-base group-hover:text-white transition-colors duration-200">Projects</div>
+                <div class="w-6 md:w-8 h-0.5 bg-gradient-to-r from-rotaract-primary to-rotaract-secondary mx-auto mt-1 md:mt-2 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+            </div>
+            <div class="text-center group cursor-default">
+                <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-1 md:mb-2 counter" data-target="10">0</div>
+                <div class="text-white/80 text-xs sm:text-sm md:text-base group-hover:text-white transition-colors duration-200">Years</div>
+                <div class="w-6 md:w-8 h-0.5 bg-gradient-to-r from-purple-300 to-pink-300 mx-auto mt-1 md:mt-2 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+            </div>
+            <div class="text-center group cursor-default">
+                <div class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-1 md:mb-2 counter" data-target="100">0</div>
+                <div class="text-white/80 text-xs sm:text-sm md:text-base group-hover:text-white transition-colors duration-200">% Impact</div>
+                <div class="w-6 md:w-8 h-0.5 bg-gradient-to-r from-green-300 to-blue-300 mx-auto mt-1 md:mt-2 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Enhanced Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">
+        <div class="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center group hover:border-white transition-colors duration-200">
+            <div class="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse group-hover:bg-white transition-colors duration-200"></div>
+        </div>
+        <p class="text-white/60 text-xs mt-2 group-hover:text-white/80 transition-colors duration-200">Scroll</p>
     </div>
 </section>
 
 <!-- About Section -->
-<section id="about" class="section">
-    <div class="container">
-        <h2 class="section-title">About Us</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <p>
-                    The Rotaract Club of Zamboanga City North is a vibrant youth-led 
-                    community service organization based in Zamboanga City. With over 
-                    1,500 members and followers, the club is dedicated to service, 
-                    leadership development, and fostering positive change at the 
-                    grassroots level 
-                </p>
-                <br>
-                <p>
-                    Founded under the sponsorship of Rotary International, our club brings 
-                    together young professionals, students, and community members who 
-                    share a passion for making a difference in areas like education,
-                     health, environment, and youth empowerment. Through meaningful 
-                     projects and partnerships, we strive to leave a lasting impact 
-                     in our neighborhoods.
-                </p>
-            </div>
-            <div class="about-image">
-                <div style="width: 400px; height: 400px; background: linear-gradient(135deg, #e91e63, #ff6b35); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem; margin: 0 auto;">
-                    <img src="img/rotaract-about.png" alt="Rotaract Logo" style="width: 80%; height: auto; border-radius: 50%;">
+<section id="about" class="py-16 md:py-24 bg-white relative overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-5">
+        <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, #e91e63 1px, transparent 0); background-size: 20px 20px;"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 sm:px-6 relative z-10">
+        <div class="text-center mb-12 md:mb-16">
+            <span class="inline-block px-4 py-2 bg-rotaract-primary/10 text-rotaract-primary rounded-full text-sm font-semibold mb-4">
+                About Us
+            </span>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
+                Who We Are
+            </h2>
+            <div class="w-16 md:w-24 h-1 bg-gradient-to-r from-rotaract-primary to-rotaract-secondary mx-auto"></div>
+        </div>
+        
+        <div class="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
+            <div class="space-y-8">
+                <div class="prose prose-lg text-gray-700">
+                    <p class="text-xl leading-relaxed mb-6">
+                        The Rotaract Club of Zamboanga City North is a vibrant youth-led 
+                        community service organization based in Zamboanga City. With over 
+                        <span class="font-semibold text-rotaract-primary">1,500 members and followers</span>, 
+                        the club is dedicated to service, leadership development, and fostering 
+                        positive change at the grassroots level.
+                    </p>
+                    <p class="text-lg leading-relaxed">
+                        Founded under the sponsorship of Rotary International, our club brings 
+                        together young professionals, students, and community members who 
+                        share a passion for making a difference in areas like education,
+                        health, environment, and youth empowerment.
+                    </p>
                 </div>
+                
+                <!-- Feature Cards -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="group p-6 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 hover:shadow-xl transition-all duration-300">
+                        <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-users text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Leadership</h3>
+                        <p class="text-gray-600 text-sm">Developing future leaders through hands-on experience</p>
+                    </div>
+                    
+                    <div class="group p-6 rounded-2xl bg-gradient-to-br from-green-50 to-green-100 border border-green-200 hover:shadow-xl transition-all duration-300">
+                        <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-heart text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Service</h3>
+                        <p class="text-gray-600 text-sm">Making a meaningful impact in our communities</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <div class="relative z-10">
+                    <div class="w-full max-w-md mx-auto relative">
+                        <!-- Main Image Container -->
+                        <div class="relative bg-gradient-to-br from-rotaract-primary to-rotaract-secondary p-8 rounded-3xl shadow-2xl">
+                            <img src="img/rotaract-about.png" alt="Rotaract Logo" class="w-full h-auto rounded-2xl shadow-lg">
+                        </div>
+                        
+                        <!-- Floating Elements -->
+                        <div class="absolute -top-6 -right-6 w-20 h-20 bg-yellow-400 rounded-2xl rotate-12 flex items-center justify-center shadow-lg">
+                            <i class="fas fa-star text-white text-2xl"></i>
+                        </div>
+                        <div class="absolute -bottom-6 -left-6 w-16 h-16 bg-blue-500 rounded-xl -rotate-12 flex items-center justify-center shadow-lg">
+                            <i class="fas fa-globe text-white text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Background Decorations -->
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-rotaract-primary/20 to-rotaract-secondary/20 rounded-full blur-3xl -z-10"></div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Officers Section -->
-<section id="officers" class="section" style="background: #f9f9f9;">
-    <div class="container">
-        <h2 class="section-title">Our Officers</h2>
-        <div class="officers-grid">
-            <div class="officer-card">
-                <div class="officer-photo">JP</div>
-                <div class="officer-name">John Paul Santos</div>
-                <div class="officer-position">President</div>
+<section id="officers" class="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
+    <div class="container mx-auto px-4 sm:px-6 relative z-10">
+        <div class="text-center mb-12 md:mb-16">
+            <span class="inline-block px-4 py-2 bg-rotaract-primary/10 text-rotaract-primary rounded-full text-sm font-semibold mb-4">
+                Leadership Team
+            </span>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
+                Our Officers
+            </h2>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4 sm:px-0">
+                Meet the dedicated leaders who drive our mission forward and inspire positive change in our community.
+            </p>
+            <div class="w-16 md:w-24 h-1 bg-gradient-to-r from-rotaract-primary to-rotaract-secondary mx-auto mt-4 md:mt-6"></div>
+        </div>
+        
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <!-- President -->
+            <div class="group relative bg-white rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
+                <div class="absolute -top-3 -right-3 md:-top-4 md:-right-4 w-7 h-7 md:w-8 md:h-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
+                    <i class="fas fa-crown text-white text-xs md:text-sm"></i>
+                </div>
+                <div class="text-center">
+                    <div class="relative inline-block mb-4 md:mb-6">
+                        <div class="w-20 h-20 md:w-24 md:h-24 mx-auto bg-gradient-to-br from-rotaract-primary to-rotaract-secondary rounded-xl md:rounded-2xl flex items-center justify-center text-white text-xl md:text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            JP
+                        </div>
+                        <div class="absolute -bottom-1 -right-1 md:-bottom-2 md:-right-2 w-6 h-6 md:w-8 md:h-8 bg-green-500 rounded-full border-3 md:border-4 border-white flex items-center justify-center">
+                            <i class="fas fa-check text-white text-xs md:text-sm"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-2">John Paul Santos</h3>
+                    <p class="text-rotaract-primary font-semibold mb-3 md:mb-4">President</p>
+                    <div class="flex justify-center space-x-2 md:space-x-3">
+                        <a href="#" class="w-7 h-7 md:w-8 md:h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-linkedin text-xs md:text-sm"></i>
+                        </a>
+                        <a href="#" class="w-7 h-7 md:w-8 md:h-8 bg-gray-800 rounded-lg flex items-center justify-center text-white hover:bg-gray-900 transition-colors">
+                            <i class="fab fa-twitter text-xs md:text-sm"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="officer-card">
-                <div class="officer-photo">MG</div>
-                <div class="officer-name">Maria Gonzalez</div>
-                <div class="officer-position">Vice President</div>
+            
+            <!-- Vice President -->
+            <div class="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
+                <div class="text-center">
+                    <div class="relative inline-block mb-6">
+                        <div class="w-24 h-24 mx-auto bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-white text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            MG
+                        </div>
+                        <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-white flex items-center justify-center">
+                            <i class="fas fa-check text-white text-sm"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Maria Gonzalez</h3>
+                    <p class="text-rotaract-primary font-semibold mb-4">Vice President</p>
+                    <div class="flex justify-center space-x-3">
+                        <a href="#" class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-linkedin text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center text-white hover:bg-gray-900 transition-colors">
+                            <i class="fab fa-twitter text-sm"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="officer-card">
-                <div class="officer-photo">AR</div>
-                <div class="officer-name">Ana Rodriguez</div>
-                <div class="officer-position">Secretary</div>
+            
+            <!-- Secretary -->
+            <div class="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
+                <div class="text-center">
+                    <div class="relative inline-block mb-6">
+                        <div class="w-24 h-24 mx-auto bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center text-white text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            AR
+                        </div>
+                        <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-white flex items-center justify-center">
+                            <i class="fas fa-check text-white text-sm"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Ana Rodriguez</h3>
+                    <p class="text-rotaract-primary font-semibold mb-4">Secretary</p>
+                    <div class="flex justify-center space-x-3">
+                        <a href="#" class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-linkedin text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center text-white hover:bg-gray-900 transition-colors">
+                            <i class="fab fa-twitter text-sm"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="officer-card">
-                <div class="officer-photo">DL</div>
-                <div class="officer-name">David Lopez</div>
-                <div class="officer-position">Treasurer</div>
+            
+            <!-- Treasurer -->
+            <div class="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
+                <div class="text-center">
+                    <div class="relative inline-block mb-6">
+                        <div class="w-24 h-24 mx-auto bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center text-white text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            DL
+                        </div>
+                        <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-white flex items-center justify-center">
+                            <i class="fas fa-check text-white text-sm"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">David Lopez</h3>
+                    <p class="text-rotaract-primary font-semibold mb-4">Treasurer</p>
+                    <div class="flex justify-center space-x-3">
+                        <a href="#" class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-linkedin text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center text-white hover:bg-gray-900 transition-colors">
+                            <i class="fab fa-twitter text-sm"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="officer-card">
-                <div class="officer-photo">SJ</div>
-                <div class="officer-name">Sarah Johnson</div>
-                <div class="officer-position">Public Relations</div>
+            
+            <!-- Public Relations -->
+            <div class="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
+                <div class="text-center">
+                    <div class="relative inline-block mb-6">
+                        <div class="w-24 h-24 mx-auto bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl flex items-center justify-center text-white text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            SJ
+                        </div>
+                        <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-white flex items-center justify-center">
+                            <i class="fas fa-check text-white text-sm"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Sarah Johnson</h3>
+                    <p class="text-rotaract-primary font-semibold mb-4">Public Relations</p>
+                    <div class="flex justify-center space-x-3">
+                        <a href="#" class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-linkedin text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center text-white hover:bg-gray-900 transition-colors">
+                            <i class="fab fa-twitter text-sm"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="officer-card">
-                <div class="officer-photo">RC</div>
-                <div class="officer-name">Robert Cruz</div>
-                <div class="officer-position">Community Service</div>
+            
+            <!-- Community Service -->
+            <div class="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
+                <div class="text-center">
+                    <div class="relative inline-block mb-6">
+                        <div class="w-24 h-24 mx-auto bg-gradient-to-br from-indigo-500 to-purple-500 rounded-2xl flex items-center justify-center text-white text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            RC
+                        </div>
+                        <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-white flex items-center justify-center">
+                            <i class="fas fa-check text-white text-sm"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Robert Cruz</h3>
+                    <p class="text-rotaract-primary font-semibold mb-4">Community Service</p>
+                    <div class="flex justify-center space-x-3">
+                        <a href="#" class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-linkedin text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center text-white hover:bg-gray-900 transition-colors">
+                            <i class="fab fa-twitter text-sm"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
 <!-- Projects Section -->
-<section id="projects" class="section">
-    <div class="container">
-        <h2 class="section-title">Our Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-image">🏥</div>
-                <div class="project-content">
-                    <div class="project-title">Medical Mission</div>
-                    <div class="project-date">March 15, 2024</div>
-                    <div class="project-description">Free medical consultation and basic health services for underserved communities in Zamboanga City North.</div>
+<section id="projects" class="py-16 md:py-24 bg-white relative overflow-hidden">
+    <div class="container mx-auto px-4 sm:px-6 relative z-10">
+        <div class="text-center mb-12 md:mb-16">
+            <span class="inline-block px-4 py-2 bg-rotaract-primary/10 text-rotaract-primary rounded-full text-sm font-semibold mb-4">
+                Our Impact
+            </span>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
+                Recent Projects
+            </h2>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4 sm:px-0">
+                Discover how we're making a difference through meaningful community service projects and initiatives.
+            </p>
+            <div class="w-16 md:w-24 h-1 bg-gradient-to-r from-rotaract-primary to-rotaract-secondary mx-auto mt-4 md:mt-6"></div>
+        </div>
+        
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <!-- Medical Mission -->
+            <div class="group bg-white rounded-2xl md:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 overflow-hidden">
+                <div class="relative h-40 md:h-48 bg-gradient-to-br from-red-500 to-pink-500 flex items-center justify-center">
+                    <i class="fas fa-heartbeat text-4xl md:text-6xl text-white group-hover:scale-110 transition-transform duration-300"></i>
+                    <div class="absolute top-3 right-3 md:top-4 md:right-4 bg-white/20 backdrop-blur-sm rounded-full px-2 py-1 md:px-3 md:py-1">
+                        <span class="text-white text-xs md:text-sm font-medium">Completed</span>
+                    </div>
+                </div>
+                <div class="p-6 md:p-8">
+                    <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3">Medical Mission</h3>
+                    <p class="text-xs md:text-sm text-gray-500 mb-3 md:mb-4 flex items-center">
+                        <i class="fas fa-calendar-alt mr-2"></i>
+                        March 15, 2024
+                    </p>
+                    <p class="text-sm md:text-base text-gray-600 leading-relaxed mb-4 md:mb-6">
+                        Free medical consultation and basic health services for underserved communities in Zamboanga City North.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center text-green-600">
+                            <i class="fas fa-users mr-2"></i>
+                            <span class="text-sm font-medium">500+ Beneficiaries</span>
+                        </div>
+                        <button class="text-rotaract-primary hover:text-rotaract-secondary transition-colors">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
-            <div class="project-card">
-                <div class="project-image">📚</div>
-                <div class="project-content">
-                    <div class="project-title">Educational Outreach</div>
-                    <div class="project-date">February 20, 2024</div>
-                    <div class="project-description">School supplies distribution and literacy programs for elementary students in remote barangays.</div>
+            
+            <!-- Educational Outreach -->
+            <div class="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 overflow-hidden">
+                <div class="relative h-48 bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center">
+                    <i class="fas fa-graduation-cap text-6xl text-white group-hover:scale-110 transition-transform duration-300"></i>
+                    <div class="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1">
+                        <span class="text-white text-sm font-medium">Completed</span>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Educational Outreach</h3>
+                    <p class="text-sm text-gray-500 mb-4 flex items-center">
+                        <i class="fas fa-calendar-alt mr-2"></i>
+                        February 20, 2024
+                    </p>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        School supplies distribution and literacy programs for elementary students in remote barangays.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center text-green-600">
+                            <i class="fas fa-book mr-2"></i>
+                            <span class="text-sm font-medium">300+ Students</span>
+                        </div>
+                        <button class="text-rotaract-primary hover:text-rotaract-secondary transition-colors">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
-            <div class="project-card">
-                <div class="project-image">🌱</div>
-                <div class="project-content">
-                    <div class="project-title">Environmental Clean-up</div>
-                    <div class="project-date">January 10, 2024</div>
-                    <div class="project-description">Coastal cleanup and tree planting activities to promote environmental awareness and sustainability.</div>
+            
+            <!-- Environmental Clean-up -->
+            <div class="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 overflow-hidden">
+                <div class="relative h-48 bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center">
+                    <i class="fas fa-leaf text-6xl text-white group-hover:scale-110 transition-transform duration-300"></i>
+                    <div class="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1">
+                        <span class="text-white text-sm font-medium">Completed</span>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Environmental Clean-up</h3>
+                    <p class="text-sm text-gray-500 mb-4 flex items-center">
+                        <i class="fas fa-calendar-alt mr-2"></i>
+                        January 10, 2024
+                    </p>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Coastal cleanup and tree planting activities to promote environmental awareness and sustainability.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center text-green-600">
+                            <i class="fas fa-tree mr-2"></i>
+                            <span class="text-sm font-medium">200+ Trees</span>
+                        </div>
+                        <button class="text-rotaract-primary hover:text-rotaract-secondary transition-colors">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
-            <div class="project-card">
-                <div class="project-image">🎄</div>
-                <div class="project-content">
-                    <div class="project-title">Holiday Gift Drive</div>
-                    <div class="project-date">December 25, 2023</div>
-                    <div class="project-description">Christmas gift distribution to orphanages and elderly homes throughout the city.</div>
+            
+            <!-- Holiday Gift Drive -->
+            <div class="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 overflow-hidden">
+                <div class="relative h-48 bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+                    <i class="fas fa-gift text-6xl text-white group-hover:scale-110 transition-transform duration-300"></i>
+                    <div class="absolute top-4 right-4 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1">
+                        <span class="text-white text-sm font-medium">Completed</span>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Holiday Gift Drive</h3>
+                    <p class="text-sm text-gray-500 mb-4 flex items-center">
+                        <i class="fas fa-calendar-alt mr-2"></i>
+                        December 25, 2023
+                    </p>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Christmas gift distribution to orphanages and elderly homes throughout the city.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center text-green-600">
+                            <i class="fas fa-heart mr-2"></i>
+                            <span class="text-sm font-medium">100+ Families</span>
+                        </div>
+                        <button class="text-rotaract-primary hover:text-rotaract-secondary transition-colors">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
-            <div class="project-card">
-                <div class="project-image">🏃</div>
-                <div class="project-content">
-                    <div class="project-title">Fun Run for a Cause</div>
-                    <div class="project-date">Coming Soon - August 2024</div>
-                    <div class="project-description">Annual charity run event to raise funds for scholarships and community development programs.</div>
+            
+            <!-- Fun Run for a Cause -->
+            <div class="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 overflow-hidden">
+                <div class="relative h-48 bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center">
+                    <i class="fas fa-running text-6xl text-white group-hover:scale-110 transition-transform duration-300"></i>
+                    <div class="absolute top-4 right-4 bg-yellow-400 rounded-full px-3 py-1">
+                        <span class="text-gray-900 text-sm font-medium">Upcoming</span>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Fun Run for a Cause</h3>
+                    <p class="text-sm text-gray-500 mb-4 flex items-center">
+                        <i class="fas fa-calendar-alt mr-2"></i>
+                        August 2024
+                    </p>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Annual charity run event to raise funds for scholarships and community development programs.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center text-orange-600">
+                            <i class="fas fa-clock mr-2"></i>
+                            <span class="text-sm font-medium">Coming Soon</span>
+                        </div>
+                        <button class="text-rotaract-primary hover:text-rotaract-secondary transition-colors">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
-            <div class="project-card">
-                <div class="project-image">💡</div>
-                <div class="project-content">
-                    <div class="project-title">Leadership Training</div>
-                    <div class="project-date">Coming Soon - September 2024</div>
-                    <div class="project-description">Youth leadership development workshops and mentorship programs for aspiring young leaders.</div>
+            
+            <!-- Leadership Training -->
+            <div class="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 overflow-hidden">
+                <div class="relative h-48 bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center">
+                    <i class="fas fa-users-cog text-6xl text-white group-hover:scale-110 transition-transform duration-300"></i>
+                    <div class="absolute top-4 right-4 bg-yellow-400 rounded-full px-3 py-1">
+                        <span class="text-gray-900 text-sm font-medium">Upcoming</span>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Leadership Training</h3>
+                    <p class="text-sm text-gray-500 mb-4 flex items-center">
+                        <i class="fas fa-calendar-alt mr-2"></i>
+                        September 2024
+                    </p>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        Youth leadership development workshops and mentorship programs for aspiring young leaders.
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center text-orange-600">
+                            <i class="fas fa-clock mr-2"></i>
+                            <span class="text-sm font-medium">Coming Soon</span>
+                        </div>
+                        <button class="text-rotaract-primary hover:text-rotaract-secondary transition-colors">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -174,81 +632,387 @@
 </section>
 
 <!-- Gallery Section -->
-<section id="gallery" class="section" style="background: #f9f9f9;">
-    <div class="container">
-        <h2 class="section-title">Gallery</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item">Medical Mission 2024</div>
-            <div class="gallery-item">Educational Outreach</div>
-            <div class="gallery-item">Environmental Clean-up</div>
-            <div class="gallery-item">Holiday Gift Drive</div>
-            <div class="gallery-item">Team Building</div>
-            <div class="gallery-item">Community Service</div>
+<section id="gallery" class="py-24 bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="text-center mb-16">
+            <span class="inline-block px-4 py-2 bg-rotaract-primary/10 text-rotaract-primary rounded-full text-sm font-semibold mb-4">
+                Our Moments
+            </span>
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                Gallery
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Capturing memories and moments from our community service projects and events.
+            </p>
+            <div class="w-24 h-1 bg-gradient-to-r from-rotaract-primary to-rotaract-secondary mx-auto mt-6"></div>
         </div>
-        <div class="gallery-link">
-            <a href="gallery.html" class="gallery-button">View Full Gallery</a>
+        
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-12">
+            <div class="group relative bg-gradient-to-br from-red-500 to-pink-500 rounded-2xl aspect-square overflow-hidden cursor-pointer">
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="text-center text-white group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-heartbeat text-3xl mb-2"></i>
+                        <p class="text-sm font-medium">Medical Mission 2024</p>
+                    </div>
+                </div>
+                <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <i class="fas fa-expand-alt text-white"></i>
+                </div>
+            </div>
+            
+            <div class="group relative bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl aspect-square overflow-hidden cursor-pointer">
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="text-center text-white group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-graduation-cap text-3xl mb-2"></i>
+                        <p class="text-sm font-medium">Educational Outreach</p>
+                    </div>
+                </div>
+                <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <i class="fas fa-expand-alt text-white"></i>
+                </div>
+            </div>
+            
+            <div class="group relative bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl aspect-square overflow-hidden cursor-pointer">
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="text-center text-white group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-leaf text-3xl mb-2"></i>
+                        <p class="text-sm font-medium">Environmental Clean-up</p>
+                    </div>
+                </div>
+                <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <i class="fas fa-expand-alt text-white"></i>
+                </div>
+            </div>
+            
+            <div class="group relative bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl aspect-square overflow-hidden cursor-pointer">
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="text-center text-white group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-gift text-3xl mb-2"></i>
+                        <p class="text-sm font-medium">Holiday Gift Drive</p>
+                    </div>
+                </div>
+                <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <i class="fas fa-expand-alt text-white"></i>
+                </div>
+            </div>
+            
+            <div class="group relative bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl aspect-square overflow-hidden cursor-pointer">
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="text-center text-white group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-users text-3xl mb-2"></i>
+                        <p class="text-sm font-medium">Team Building</p>
+                    </div>
+                </div>
+                <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <i class="fas fa-expand-alt text-white"></i>
+                </div>
+            </div>
+            
+            <div class="group relative bg-gradient-to-br from-indigo-500 to-purple-500 rounded-2xl aspect-square overflow-hidden cursor-pointer">
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="text-center text-white group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-hands-helping text-3xl mb-2"></i>
+                        <p class="text-sm font-medium">Community Service</p>
+                    </div>
+                </div>
+                <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <i class="fas fa-expand-alt text-white"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center">
+            <a href="gallery.html" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-rotaract-primary to-rotaract-secondary text-white font-bold rounded-full hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                <span class="mr-2">View Full Gallery</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
         </div>
     </div>
 </section>
 
 <!-- Join Us Section -->
-<section id="join" class="section join-us">
-    <div class="container">
-        <div class="join-content">
-            <h2 class="section-title">Join Our Mission</h2>
-            <div class="join-description">
-                Be part of a dynamic community of young leaders making a difference in Zamboanga City North. Together, we can create positive change and build a better future for our community.
+<section class="py-24 bg-gradient-to-br from-rotaract-primary via-purple-600 to-rotaract-secondary relative overflow-hidden">
+    <!-- Background Elements -->
+    <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+    </div>
+    
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="text-center max-w-4xl mx-auto">
+            <span class="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-full text-sm font-semibold mb-6">
+                <i class="fas fa-handshake mr-2"></i>
+                Join Our Community
+            </span>
+            <h2 class="text-4xl md:text-6xl font-bold text-white mb-8">
+                Ready to Make a 
+                <span class="block bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
+                    Difference?
+                </span>
+            </h2>
+            <p class="text-xl md:text-2xl text-white/90 mb-12 leading-relaxed">
+                Be part of a dynamic community of young leaders making a difference in Zamboanga City North. 
+                Together, we can create positive change and build a better future for our community.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="#contact" class="group bg-white text-rotaract-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transform hover:-translate-y-1 transition-all duration-300 shadow-2xl">
+                    <span class="mr-2">Get Involved Today</span>
+                    <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform duration-200"></i>
+                </a>
+                <a href="#about" class="group border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-rotaract-primary transform hover:-translate-y-1 transition-all duration-300">
+                    <span class="mr-2">Learn More</span>
+                    <i class="fas fa-info-circle group-hover:scale-110 transition-transform duration-200"></i>
+                </a>
             </div>
-            <a href="#contact" class="join-button">Get Involved Today</a>
         </div>
     </div>
 </section>
 
 <!-- Contact Section -->
-<section id="contact" class="section">
-    <div class="container">
-        <h2 class="section-title">Contact Us</h2>
-        <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-            <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" required>
+<section id="contact" class="py-24 bg-white relative overflow-hidden">
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="text-center mb-16">
+            <span class="inline-block px-4 py-2 bg-rotaract-primary/10 text-rotaract-primary rounded-full text-sm font-semibold mb-4">
+                Get In Touch
+            </span>
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                Contact Us
+            </h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Ready to join our mission or have questions? We'd love to hear from you.
+            </p>
+            <div class="w-24 h-1 bg-gradient-to-r from-rotaract-primary to-rotaract-secondary mx-auto mt-6"></div>
+        </div>
+        
+        <div class="max-w-4xl mx-auto grid lg:grid-cols-2 gap-16">
+            <!-- Contact Info -->
+            <div class="space-y-8">
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-8">Let's Connect</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-rotaract-primary to-rotaract-secondary rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">Address</h4>
+                                <p class="text-gray-600">Zamboanga City North, Philippines</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">Email</h4>
+                                <p class="text-gray-600">info@rotaractnorth.org</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-phone text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-1">Phone</h4>
+                                <p class="text-gray-600">+63 123 456 7890</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Social Links -->
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white hover:bg-blue-700 transform hover:scale-110 transition-all duration-200">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-pink-600 rounded-xl flex items-center justify-center text-white hover:bg-pink-700 transform hover:scale-110 transition-all duration-200">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-blue-400 rounded-xl flex items-center justify-center text-white hover:bg-blue-500 transform hover:scale-110 transition-all duration-200">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-blue-700 rounded-xl flex items-center justify-center text-white hover:bg-blue-800 transform hover:scale-110 transition-all duration-200">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required>
+            
+            <!-- Enhanced Contact Form -->
+            <div class="bg-gray-50 rounded-3xl p-8 shadow-lg relative overflow-hidden">
+                <!-- Form loading overlay -->
+                <div id="formLoading" class="absolute inset-0 bg-white/90 backdrop-blur-sm hidden items-center justify-center z-10">
+                    <div class="text-center">
+                        <div class="w-12 h-12 border-4 border-rotaract-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                        <p class="text-gray-600 font-medium">Sending your message...</p>
+                    </div>
+                </div>
+                
+                <form id="contactForm" class="space-y-6" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="form-group">
+                            <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">
+                                Full Name <span class="text-red-500">*</span>
+                            </label>
+                            <input type="text" id="name" name="name" required
+                                class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-rotaract-primary focus:border-transparent transition-all duration-200 bg-white hover:border-gray-300">
+                            <div class="error-message text-red-500 text-sm mt-1 hidden"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">
+                                Email Address <span class="text-red-500">*</span>
+                            </label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-rotaract-primary focus:border-transparent transition-all duration-200 bg-white hover:border-gray-300">
+                            <div class="error-message text-red-500 text-sm mt-1 hidden"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone" class="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
+                        <input type="tel" id="phone" name="phone"
+                            class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-rotaract-primary focus:border-transparent transition-all duration-200 bg-white hover:border-gray-300">
+                        <div class="error-message text-red-500 text-sm mt-1 hidden"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject" class="block text-sm font-semibold text-gray-700 mb-2">
+                            Subject <span class="text-red-500">*</span>
+                        </label>
+                        <input type="text" id="subject" name="subject" required
+                            class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-rotaract-primary focus:border-transparent transition-all duration-200 bg-white hover:border-gray-300">
+                        <div class="error-message text-red-500 text-sm mt-1 hidden"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">
+                            Message <span class="text-red-500">*</span>
+                        </label>
+                        <textarea id="message" name="message" rows="5" required
+                            class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-rotaract-primary focus:border-transparent transition-all duration-200 bg-white resize-none hover:border-gray-300"
+                            placeholder="Tell us about your interest in joining Rotaract or any questions you have..."></textarea>
+                        <div class="error-message text-red-500 text-sm mt-1 hidden"></div>
+                    </div>
+                    
+                    <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-rotaract-primary to-rotaract-secondary text-white font-bold py-4 rounded-xl hover:shadow-xl hover:shadow-rotaract-primary/25 transform hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group">
+                        <span class="relative z-10">
+                            <span class="mr-2" id="btnText">Send Message</span>
+                            <i class="fas fa-paper-plane" id="btnIcon"></i>
+                        </span>
+                        <div class="absolute inset-0 bg-gradient-to-r from-rotaract-secondary to-rotaract-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                    </button>
+                </form>
+                
+                <!-- Success/Error Messages -->
+                <div id="formSuccess" class="hidden mt-6 p-4 bg-green-100 border border-green-300 rounded-xl">
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                        <p class="text-green-800 font-medium">Thank you! Your message has been sent successfully. We'll get back to you soon!</p>
+                    </div>
+                </div>
+                
+                <div id="formError" class="hidden mt-6 p-4 bg-red-100 border border-red-300 rounded-xl">
+                    <div class="flex items-center">
+                        <i class="fas fa-exclamation-circle text-red-600 mr-3"></i>
+                        <p class="text-red-800 font-medium">Sorry, there was an error sending your message. Please try again later.</p>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone">
-            </div>
-            <div class="form-group">
-                <label for="subject">Subject</label>
-                <input type="text" id="subject" name="subject" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" required></textarea>
-            </div>
-            <button type="submit" class="submit-button">Send Message</button>
-        </form>
+        </div>
     </div>
 </section>
 
-
 <script src="https://cdn.botpress.cloud/webchat/v3.1/inject.js" defer></script>
 <script src="https://files.bpcontent.cloud/2025/07/08/12/20250708124857-EDNWZO8G.js" defer></script>
-    
 
 <!-- Footer -->
-<footer class="footer">
-    <div class="footer-content">
-        <div class="social-links">
-            <a href="#" title="Facebook">📘</a>
-            <a href="#" title="Instagram">📷</a>
-            <a href="#" title="Twitter">🐦</a>
-            <a href="#" title="LinkedIn">💼</a>
+<footer class="bg-gray-900 text-white py-16 relative overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-10">
+        <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, #fff 1px, transparent 0); background-size: 20px 20px;"></div>
+    </div>
+    
+    <div class="container mx-auto px-6 relative z-10">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            <!-- Logo & Description -->
+            <div class="lg:col-span-2">
+                <div class="flex items-center space-x-3 mb-6">
+                    <img src="img/rotaract-logo.png" alt="Rotaract Club Logo" class="h-12 w-auto object-contain rounded-lg">
+                    <span class="text-xl font-bold">Rotaract Club of Zamboanga City North</span>
+                </div>
+                <p class="text-gray-400 leading-relaxed mb-6 max-w-md">
+                    Unite for Good - Building Leaders, Serving Communities. Empowering youth to create positive change through service, leadership, and fellowship.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#" class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center hover:bg-blue-700 transform hover:scale-110 transition-all duration-200">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-pink-600 rounded-lg flex items-center justify-center hover:bg-pink-700 transform hover:scale-110 transition-all duration-200">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-blue-400 rounded-lg flex items-center justify-center hover:bg-blue-500 transform hover:scale-110 transition-all duration-200">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-blue-700 rounded-lg flex items-center justify-center hover:bg-blue-800 transform hover:scale-110 transition-all duration-200">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Quick Links -->
+            <div>
+                <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+                <ul class="space-y-3">
+                    <li><a href="#home" class="text-gray-400 hover:text-white transition-colors duration-200">Home</a></li>
+                    <li><a href="#about" class="text-gray-400 hover:text-white transition-colors duration-200">About Us</a></li>
+                    <li><a href="#officers" class="text-gray-400 hover:text-white transition-colors duration-200">Officers</a></li>
+                    <li><a href="#projects" class="text-gray-400 hover:text-white transition-colors duration-200">Projects</a></li>
+                    <li><a href="#gallery" class="text-gray-400 hover:text-white transition-colors duration-200">Gallery</a></li>
+                </ul>
+            </div>
+            
+            <!-- Contact Info -->
+            <div>
+                <h4 class="text-lg font-bold mb-6">Contact</h4>
+                <ul class="space-y-3">
+                    <li class="flex items-center space-x-3">
+                        <i class="fas fa-map-marker-alt text-rotaract-primary"></i>
+                        <span class="text-gray-400">Zamboanga City North</span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <i class="fas fa-envelope text-rotaract-primary"></i>
+                        <span class="text-gray-400">info@rotaractnorth.org</span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <i class="fas fa-phone text-rotaract-primary"></i>
+                        <span class="text-gray-400">+63 123 456 7890</span>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <p>&copy; 2024 Rotaract Club of Zamboanga City North. All rights reserved.</p>
+        
+        <!-- Bottom Bar -->
+        <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                &copy; 2024 Rotaract Club of Zamboanga City North. All rights reserved.
+            </p>
+            <div class="flex items-center space-x-6 text-sm text-gray-400">
+                <a href="#" class="hover:text-white transition-colors duration-200">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition-colors duration-200">Terms of Service</a>
+            </div>
+        </div>
     </div>
 </footer>
 
