@@ -8,6 +8,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="icon" href="img/icon.png">
 <script>
 tailwind.config = {
   theme: {
@@ -41,7 +42,7 @@ tailwind.config = {
                 <div class="relative">
                     <img src="img/rotaract-logo.png" alt="Rotaract Club Logo" class="h-8 xs:h-10 sm:h-12 w-auto object-contain rounded-lg transition-transform group-hover:scale-105">
                 </div>
-                <span class="text-white font-bold text-sm xs:text-base sm:text-lg hidden xs:block truncate">Rotaract North</span>
+                <span class="text-white font-bold text-sm xs:text-base sm:text-lg hidden xs:block truncate"></span>
             </a>
             
             <!-- Desktop Navigation (Large screens) -->
@@ -106,7 +107,7 @@ tailwind.config = {
 <!-- Hero Section -->
 <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
     <!-- Enhanced Background -->
-    <div class="absolute inset-0 bg-gradient-to-br from-rotaract-primary via-purple-600 to-rotaract-secondary"></div>
+ <div class="absolute inset-0" style="background: linear-gradient(125deg, #af0015, #ff3a5d, #f6b116);"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/10"></div>
     
     <!-- Floating Particles -->
@@ -134,7 +135,7 @@ tailwind.config = {
             </span>
         </div>
         <h1 class="text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 md:mb-8 leading-tight opacity-0 animate-fadeInUp" style="animation-delay: 0.4s; animation-fill-mode: forwards;">
-            <span class="block bg-gradient-to-r from-yellow-300 via-orange-300 to-pink-300 bg-clip-text text-transparent animate-pulse">
+            <span class="block text-white animate-pulse"></span>
             Rotaract Club of Zamboanga City North
             </span>
         </h1>
@@ -314,6 +315,30 @@ tailwind.config = {
                 </div>
             </div>
             
+            <!-- immediate past President -->
+            <div class="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
+                <div class="text-center">
+                    <div class="relative inline-block mb-6">
+                        <div class="w-24 h-24 mx-auto bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-white text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            MG
+                        </div>
+                        <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-white flex items-center justify-center">
+                            <i class="fas fa-check text-white text-sm"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Angelica Flor Campos</h3>
+                    <p class="text-rotaract-primary font-semibold mb-4">Immediate Past President</p>
+                    <div class="flex justify-center space-x-3">
+                        <a href="#" class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-linkedin text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center text-white hover:bg-gray-900 transition-colors">
+                            <i class="fab fa-twitter text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
             <!-- Vice President -->
             <div class="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
                 <div class="text-center">
@@ -325,7 +350,7 @@ tailwind.config = {
                             <i class="fas fa-check text-white text-sm"></i>
                         </div>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Maria Gonzalez</h3>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Rodiel Iglesias</h3>
                     <p class="text-rotaract-primary font-semibold mb-4">Vice President</p>
                     <div class="flex justify-center space-x-3">
                         <a href="#" class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white hover:bg-blue-600 transition-colors">
@@ -349,8 +374,32 @@ tailwind.config = {
                             <i class="fas fa-check text-white text-sm"></i>
                         </div>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Ana Rodriguez</h3>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Ruzel Santos</h3>
                     <p class="text-rotaract-primary font-semibold mb-4">Secretary</p>
+                    <div class="flex justify-center space-x-3">
+                        <a href="#" class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-linkedin text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center text-white hover:bg-gray-900 transition-colors">
+                            <i class="fab fa-twitter text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+             <!--Asst. Secretary -->
+            <div class="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
+                <div class="text-center">
+                    <div class="relative inline-block mb-6">
+                        <div class="w-24 h-24 mx-auto bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center text-white text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            AR
+                        </div>
+                        <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-white flex items-center justify-center">
+                            <i class="fas fa-check text-white text-sm"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Harlene Torino</h3>
+                    <p class="text-rotaract-primary font-semibold mb-4">Asst. Secretary</p>
                     <div class="flex justify-center space-x-3">
                         <a href="#" class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white hover:bg-blue-600 transition-colors">
                             <i class="fab fa-linkedin text-sm"></i>
@@ -373,7 +422,7 @@ tailwind.config = {
                             <i class="fas fa-check text-white text-sm"></i>
                         </div>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">David Lopez</h3>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Greybin Valeros</h3>
                     <p class="text-rotaract-primary font-semibold mb-4">Treasurer</p>
                     <div class="flex justify-center space-x-3">
                         <a href="#" class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white hover:bg-blue-600 transition-colors">
@@ -386,7 +435,7 @@ tailwind.config = {
                 </div>
             </div>
             
-            <!-- Public Relations -->
+            <!-- Public Image Director -->
             <div class="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
                 <div class="text-center">
                     <div class="relative inline-block mb-6">
@@ -397,8 +446,8 @@ tailwind.config = {
                             <i class="fas fa-check text-white text-sm"></i>
                         </div>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Sarah Johnson</h3>
-                    <p class="text-rotaract-primary font-semibold mb-4">Public Relations</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Angelica Flor Campos</h3>
+                    <p class="text-rotaract-primary font-semibold mb-4">Public Image Director</p>
                     <div class="flex justify-center space-x-3">
                         <a href="#" class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white hover:bg-blue-600 transition-colors">
                             <i class="fab fa-linkedin text-sm"></i>
@@ -410,19 +459,19 @@ tailwind.config = {
                 </div>
             </div>
             
-            <!-- Community Service -->
+            <!-- Club Service Director -->
             <div class="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
                 <div class="text-center">
                     <div class="relative inline-block mb-6">
-                        <div class="w-24 h-24 mx-auto bg-gradient-to-br from-indigo-500 to-purple-500 rounded-2xl flex items-center justify-center text-white text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform duration-300">
-                            RC
+                        <div class="w-24 h-24 mx-auto bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center text-white text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            AR
                         </div>
                         <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-white flex items-center justify-center">
                             <i class="fas fa-check text-white text-sm"></i>
                         </div>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Robert Cruz</h3>
-                    <p class="text-rotaract-primary font-semibold mb-4">Community Service</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Darren Cabanlit</h3>
+                    <p class="text-rotaract-primary font-semibold mb-4">Club Service Director</p>
                     <div class="flex justify-center space-x-3">
                         <a href="#" class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white hover:bg-blue-600 transition-colors">
                             <i class="fab fa-linkedin text-sm"></i>
@@ -433,6 +482,103 @@ tailwind.config = {
                     </div>
                 </div>
             </div>
+
+            <!--  Membership Director -->
+            <div class="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
+                <div class="text-center">
+                    <div class="relative inline-block mb-6">
+                        <div class="w-24 h-24 mx-auto bg-gradient-to-br from-indigo-500 to-purple-500 rounded-2xl flex items-center justify-center text-white text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            RC
+                        </div>
+                        <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-white flex items-center justify-center">
+                            <i class="fas fa-check text-white text-sm"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Humphrey Renion</h3>
+                    <p class="text-rotaract-primary font-semibold mb-4">Membership Director</p>
+                    <div class="flex justify-center space-x-3">
+                        <a href="#" class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-linkedin text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center text-white hover:bg-gray-900 transition-colors">
+                            <i class="fab fa-twitter text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Foundation Director -->
+            <div class="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
+                <div class="text-center">
+                    <div class="relative inline-block mb-6">
+                        <div class="w-24 h-24 mx-auto bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center text-white text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            AR
+                        </div>
+                        <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-white flex items-center justify-center">
+                            <i class="fas fa-check text-white text-sm"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Jasmine Rose Natividad</h3>
+                    <p class="text-rotaract-primary font-semibold mb-4">Foundation Director</p>
+                    <div class="flex justify-center space-x-3">
+                        <a href="#" class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-linkedin text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center text-white hover:bg-gray-900 transition-colors">
+                            <i class="fab fa-twitter text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Community Service Director -->
+            <div class="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
+                <div class="text-center">
+                    <div class="relative inline-block mb-6">
+                        <div class="w-24 h-24 mx-auto bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center text-white text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            AR
+                        </div>
+                        <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-white flex items-center justify-center">
+                            <i class="fas fa-check text-white text-sm"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Harvy Aizon</h3>
+                    <p class="text-rotaract-primary font-semibold mb-4">Community service Director</p>
+                    <div class="flex justify-center space-x-3">
+                        <a href="#" class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-linkedin text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center text-white hover:bg-gray-900 transition-colors">
+                            <i class="fab fa-twitter text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Professional Service Director -->
+            <div class="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
+                <div class="text-center">
+                    <div class="relative inline-block mb-6">
+                        <div class="w-24 h-24 mx-auto bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center text-white text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            AR
+                        </div>
+                        <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full border-4 border-white flex items-center justify-center">
+                            <i class="fas fa-check text-white text-sm"></i>
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Justin Mendoza</h3>
+                    <p class="text-rotaract-primary font-semibold mb-4">Professional Service Director</p>
+                    <div class="flex justify-center space-x-3">
+                        <a href="#" class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white hover:bg-blue-600 transition-colors">
+                            <i class="fab fa-linkedin text-sm"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center text-white hover:bg-gray-900 transition-colors">
+                            <i class="fab fa-twitter text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>

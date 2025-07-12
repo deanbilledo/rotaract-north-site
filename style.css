@@ -638,3 +638,46 @@ a:focus, button:focus, input:focus, textarea:focus, select:focus {
         align-items: center;
     }
 }
+
+/* Navbar dark text state when reaching About section */
+#navbar.dark-text {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#navbar.dark-text .text-white {
+    color: #1f2937 !important;
+}
+
+#navbar.dark-text .text-white\/90 {
+    color: #374151 !important;
+}
+
+#navbar.dark-text .hover\\:text-white:hover {
+    color: #e91e63 !important;
+}
+
+#navbar.dark-text .border-white\/20 {
+    border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+#navbar.dark-text .bg-white\/10:hover {
+    background-color: rgba(233, 30, 99, 0.1) !important;
+}
+
+#navbar.dark-text .mobile-menu span {
+    background-color: #374151;
+}
+
+/* Combine scrolled and dark-text states */
+#navbar.scrolled.dark-text {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(25px);
+}
+
+/* Logo transition for smooth image swapping */
+#navbar img[src*="rotaract-logo"] {
+    transition: opacity 0.3s ease-in-out;
+}

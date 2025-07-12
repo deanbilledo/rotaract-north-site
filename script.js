@@ -385,16 +385,22 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Enhanced navbar scroll effect
+    // Enhanced navbar scroll effect with About section detection
     const navbar = document.getElementById('navbar');
+    const logoImg = navbar ? navbar.querySelector('img[src*="rotaract-logo"]') : null;
     let lastScrollY = window.scrollY;
     let ticking = false;
 
     function updateNavbar() {
         const currentScrollY = window.scrollY;
         const navbar = document.getElementById('navbar');
+        const aboutSection = document.getElementById('about');
         
         if (!navbar) return;
+        
+        // Check if we've reached the About section
+        const aboutOffsetTop = aboutSection ? aboutSection.offsetTop - 150 : 500;
+        const hasReachedAbout = currentScrollY >= aboutOffsetTop;
         
         if (currentScrollY > 100) {
             if (currentScrollY > lastScrollY) {
@@ -409,11 +415,31 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Add compact styling on scroll
             navbar.classList.add('scrolled');
+            
+            // Add dark text class when reaching About section
+            if (hasReachedAbout) {
+                navbar.classList.add('dark-text');
+                // Change logo to dark version
+                if (logoImg && logoImg.src.includes('rotaract-logo.png')) {
+                    logoImg.src = logoImg.src.replace('rotaract-logo.png', 'rotaract-logo-dark.png');
+                }
+            } else {
+                navbar.classList.remove('dark-text');
+                // Change logo back to light version
+                if (logoImg && logoImg.src.includes('rotaract-logo-dark.png')) {
+                    logoImg.src = logoImg.src.replace('rotaract-logo-dark.png', 'rotaract-logo.png');
+                }
+            }
         } else {
             // At top - always show
             navbar.style.transform = 'translate(-50%, 0)';
             navbar.style.opacity = '1';
             navbar.classList.remove('scrolled');
+            navbar.classList.remove('dark-text');
+            // Ensure logo is light version at top
+            if (logoImg && logoImg.src.includes('rotaract-logo-dark.png')) {
+                logoImg.src = logoImg.src.replace('rotaract-logo-dark.png', 'rotaract-logo.png');
+            }
         }
         
         lastScrollY = currentScrollY;
