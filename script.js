@@ -456,13 +456,15 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', requestNavbarUpdate, { passive: true });
 
     // Active navigation highlighting with improved detection
-    window.addEventListener('scroll', () => {
+    function updateActiveNavigation() {
         const sections = document.querySelectorAll('section[id]');
         const navLinkElements = document.querySelectorAll('.nav-link[href^="#"]');
+        const navbar = document.getElementById('navbar');
         
         let current = '';
-        const scrollPosition = window.scrollY + 200; // Offset for better detection
+        const scrollPosition = window.scrollY + 150; // Offset for better detection
         
+        // Find current section
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
             const sectionHeight = section.clientHeight;
@@ -477,14 +479,48 @@ document.addEventListener('DOMContentLoaded', function() {
             current = 'home';
         }
         
-        // Update active states
+        // Check if we're in the about section or beyond
+        const aboutSection = document.getElementById('about');
+        const isInAboutOrBeyond = aboutSection && scrollPosition >= aboutSection.offsetTop - 100;
+        
+        // Update active states for all navigation links
         navLinkElements.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
+            const href = link.getAttribute('href');
+            const isActive = href === `#${current}`;
+            
+            // Remove all active classes
+            link.classList.remove('active', 'active-on-about');
+            
+            if (isActive) {
+                if (isInAboutOrBeyond) {
+                    link.classList.add('active-on-about');
+                } else {
+                    link.classList.add('active');
+                }
             }
         });
-    });
+        
+        // Update navbar styling when reaching about section
+        if (navbar) {
+            if (isInAboutOrBeyond) {
+                navbar.classList.add('in-about-section');
+            } else {
+                navbar.classList.remove('in-about-section');
+            }
+        }
+    }
+
+    // Debounced scroll handler for performance
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+        if (scrollTimeout) {
+            clearTimeout(scrollTimeout);
+        }
+        scrollTimeout = setTimeout(updateActiveNavigation, 10);
+    }, { passive: true });
+
+    // Initial call to set active navigation
+    updateActiveNavigation();
 
     // Intersection Observer for animations
     const observerOptions = {

@@ -54,6 +54,71 @@ body.dark .border-gray-200 {
     }
 }
 
+/* Navigation active state highlighting */
+.nav-link {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-link.active {
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+.nav-link.active span {
+    width: 100% !important;
+    left: 0 !important;
+    background: linear-gradient(90deg, #e91e63, #ff6b35) !important;
+}
+
+/* For navbar when it reaches about section */
+.nav-link.active-on-about {
+    color: #1f2937 !important;
+    background-color: rgba(233, 30, 99, 0.1);
+    border-radius: 8px;
+}
+
+.nav-link.active-on-about span {
+    background: linear-gradient(90deg, #e91e63, #ff6b35) !important;
+}
+
+/* Mobile navigation active states */
+.nav-links .nav-link.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff !important;
+    border-radius: 8px;
+}
+
+/* Navbar styling adjustments when in about section */
+#navbar.in-about-section {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(20px);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+#navbar.in-about-section .nav-link {
+    color: rgba(31, 41, 55, 0.8) !important;
+}
+
+#navbar.in-about-section .nav-link:hover {
+    color: #1f2937 !important;
+}
+
+#navbar.in-about-section .nav-link.active-on-about {
+    color: #1f2937 !important;
+    background-color: rgba(233, 30, 99, 0.1);
+}
+
+/* Contact button styling in about section */
+#navbar.in-about-section .nav-link[href="#contact"] {
+    background: linear-gradient(90deg, #e91e63, #ff6b35) !important;
+    color: white !important;
+}
+
+#navbar.in-about-section .nav-link[href="#contact"]:hover {
+    color: white !important;
+}
+
 @keyframes fadeInLeft {
     from {
         opacity: 0;
