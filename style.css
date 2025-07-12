@@ -172,13 +172,17 @@ body {
 
 /* Section Styles */
 .section {
+    min-height: 100vh;
     padding: 5rem 0;
+    display: flex;
+    align-items: center;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
+    width: 100%;
 }
 
 .section-title {
@@ -373,6 +377,9 @@ body {
     background: linear-gradient(135deg, #e91e63, #ff6b35);
     color: white;
     text-align: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
 }
 
 .join-content {
@@ -605,7 +612,10 @@ body {
     }
 
     .section {
+        min-height: 100vh;
         padding: 3rem 0;
+        display: flex;
+        align-items: center;
     }
 
     .officers-grid {
