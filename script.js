@@ -297,7 +297,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Enhanced form submission
+        // Enhanced form submission with Formspree
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
@@ -326,6 +326,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
             try {
                 const formData = new FormData(contactForm);
+                
+                // Add additional fields for better organization
+                formData.append('_subject', `New Contact Form Submission from ${formData.get('name')}`);
+                formData.append('_replyto', formData.get('email'));
+                
                 const response = await fetch(contactForm.action, {
                     method: 'POST',
                     body: formData,
@@ -333,6 +338,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         'Accept': 'application/json'
                     }
                 });
+
+                const data = await response.json();
 
                 if (response.ok) {
                     // Success
@@ -343,15 +350,22 @@ document.addEventListener('DOMContentLoaded', function() {
                         field.classList.remove('border-green-300', 'border-red-300');
                     });
                     
+                    // Show success notification
+                    showNotification('Thank you! Your message has been sent successfully.', 'success');
+                    
                     // Scroll to success message
                     formSuccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 } else {
-                    throw new Error('Network response was not ok');
+                    throw new Error(data.error || 'Network response was not ok');
                 }
             } catch (error) {
                 // Error
                 formError.classList.remove('hidden');
                 formSuccess.classList.add('hidden');
+                
+                // Show error notification
+                showNotification('Sorry, there was an error sending your message. Please try again.', 'error');
+                
                 console.error('Error:', error);
             } finally {
                 // Reset loading state

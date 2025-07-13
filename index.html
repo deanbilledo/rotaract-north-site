@@ -1038,7 +1038,11 @@ tailwind.config = {
                     </div>
                 </div>
                 
-                <form id="contactForm" class="space-y-6" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <form id="contactForm" class="space-y-6" action="https://formspree.io/f/xqabkplo" method="POST">
+                    <!-- Hidden fields for Formspree -->
+                    <input type="hidden" name="_next" value="thank-you.html">
+                    <input type="hidden" name="_subject" value="New Contact Form Submission - Rotaract Club">
+                    <input type="hidden" name="_captcha" value="false">
                     <div class="grid md:grid-cols-2 gap-6">
                         <div class="form-group">
                             <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">
