@@ -105,7 +105,7 @@ tailwind.config = {
 </nav>
 
 <!-- Hero Section -->
-<section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+<section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 xs:pt-24 sm:pt-16">
     <!-- Enhanced Background -->
  <div class="absolute inset-0" style="background: linear-gradient(125deg, #af0015, #ff3a5d, #f6b116);"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/10"></div>
@@ -154,7 +154,7 @@ tailwind.config = {
     </div>
     
     <!-- Content -->
-    <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+    <div class="relative z-10 text-center px-4 xs:px-6 max-w-5xl mx-auto">
         <!-- <div class="mb-8 opacity-0 animate-fadeInUp" style="animation-delay: 0.2s; animation-fill-mode: forwards;">
             <span class="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium border border-white/20 hover:bg-white/30 transition-all duration-300 cursor-default">
                 <i class="fas fa-heart mr-2 text-red-300 animate-pulse"></i>
@@ -162,7 +162,7 @@ tailwind.config = {
                 <i class="fas fa-sparkles ml-2 text-yellow-300"></i>
             </span>
         </div> -->
-        <h1 class="text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 md:mb-8 leading-tight opacity-0 animate-fadeInUp" style="animation-delay: 0.4s; animation-fill-mode: forwards;">
+        <h1 class="text-5xl xs:text-5xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 md:mb-8 leading-tight opacity-0 animate-fadeInUp mt-4 xs:mt-6 sm:mt-0" style="animation-delay: 0.4s; animation-fill-mode: forwards;">
             <span class="block text-white animate-pulse"></span>
             Rotaract Club of Zamboanga City North
             </span>
@@ -210,7 +210,7 @@ tailwind.config = {
     </div>
     
     <!-- Enhanced Scroll Indicator -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer hidden sm:block" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">
         <div class="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center group hover:border-white transition-colors duration-200">
             <div class="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse group-hover:bg-white transition-colors duration-200"></div>
         </div>
