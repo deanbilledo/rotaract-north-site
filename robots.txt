@@ -1,0 +1,29 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://rotaractnorthzc.org/sitemap.xml
+
+# Preferred domain
+Host: https://rotaractnorthzc.org
+
+# Crawl delay (optional)
+Crawl-delay: 1
+
+# Disallow sensitive files
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.pdf$
+Disallow: /temp/
+
+# Allow important resources
+Allow: /img/
+Allow: /css/
+Allow: /js/
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+Allow: /*.svg
