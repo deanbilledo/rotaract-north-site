@@ -167,6 +167,101 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Design System - Consistent Spacing Scale */
+:root {
+  --spacing-xs: 0.5rem;    /* 8px */
+  --spacing-sm: 0.75rem;   /* 12px */
+  --spacing-md: 1rem;      /* 16px */
+  --spacing-lg: 1.5rem;    /* 24px */
+  --spacing-xl: 2rem;      /* 32px */
+  --spacing-2xl: 2.5rem;   /* 40px */
+  --spacing-3xl: 3rem;     /* 48px */
+  --spacing-4xl: 4rem;     /* 64px */
+  --spacing-5xl: 5rem;     /* 80px */
+  --spacing-6xl: 6rem;     /* 96px */
+  
+  /* Typography Scale */
+  --text-xs: 0.75rem;      /* 12px */
+  --text-sm: 0.875rem;     /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;     /* 18px */
+  --text-xl: 1.25rem;      /* 20px */
+  --text-2xl: 1.5rem;      /* 24px */
+  --text-3xl: 1.875rem;    /* 30px */
+  --text-4xl: 2.25rem;     /* 36px */
+  --text-5xl: 3rem;        /* 48px */
+  --text-6xl: 3.75rem;     /* 60px */
+  
+  /* Border Radius Scale */
+  --radius-sm: 0.375rem;   /* 6px */
+  --radius-md: 0.5rem;     /* 8px */
+  --radius-lg: 0.75rem;    /* 12px */
+  --radius-xl: 1rem;       /* 16px */
+  --radius-2xl: 1.5rem;    /* 24px */
+  --radius-3xl: 1.75rem;   /* 28px */
+  
+  /* Shadow Scale */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  
+  /* Color Variables */
+  --color-primary: #e91e63;
+  --color-secondary: #ff6b35;
+  --color-accent: #f6b116;
+}
+
+/* Enhanced Typography Hierarchy */
+.section-heading {
+  font-size: clamp(var(--text-3xl), 5vw, var(--text-6xl));
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
+.section-subheading {
+  font-size: clamp(var(--text-xl), 3vw, var(--text-3xl));
+  line-height: 1.3;
+}
+
+.section-description {
+  font-size: clamp(var(--text-lg), 2vw, var(--text-2xl));
+  line-height: 1.6;
+  max-width: 65ch;
+}
+
+/* Consistent Card Styling */
+.card-base {
+  border-radius: var(--radius-3xl);
+  box-shadow: var(--shadow-lg);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgb(0 0 0 / 0.05);
+}
+
+.card-base:hover {
+  box-shadow: var(--shadow-2xl);
+  transform: translateY(-8px);
+}
+
+/* Enhanced Button Styles */
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: white;
+  font-weight: 600;
+  padding: var(--spacing-lg) var(--spacing-2xl);
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+  filter: brightness(1.1);
+}
+
 /* Loading optimization */
 .scroll-indicator {
   position: fixed;
@@ -174,12 +269,12 @@ html {
   left: 0;
   width: 0%;
   height: 3px;
-  background: linear-gradient(90deg, #e91e63, #ff6b35);
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
   z-index: 9999;
   transition: width 0.3s ease;
 }
 
-/* Enhanced animations */
+/* Enhanced animations with better performance */
 @keyframes pulse-glow {
   0%, 100% { box-shadow: 0 0 20px rgba(233, 30, 99, 0.3); }
   50% { box-shadow: 0 0 40px rgba(233, 30, 99, 0.6); }
@@ -189,19 +284,87 @@ html {
   animation: pulse-glow 2s infinite;
 }
 
+@keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slideInUp 0.6s ease-out forwards;
+}
+
+/* Enhanced Focus States for Accessibility */
+.focus-ring {
+  transition: all 0.2s ease;
+}
+
+.focus-ring:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(233, 30, 99, 0.1);
+}
+
 /* Form enhancements */
 .form-group input:focus,
 .form-group textarea:focus {
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(233, 30, 99, 0.2);
+  box-shadow: var(--shadow-lg), 0 0 0 3px rgba(233, 30, 99, 0.1);
+  border-color: var(--color-primary);
 }
 
-/* Mobile optimizations */
-@media (max-width: 768px) {
+/* Mobile optimizations with consistent breakpoints */
+@media (max-width: 640px) {
   .container {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: var(--spacing-lg);
+    padding-right: var(--spacing-lg);
   }
+  
+  .section-spacing {
+    padding-top: var(--spacing-5xl);
+    padding-bottom: var(--spacing-5xl);
+  }
+}
+
+@media (min-width: 768px) {
+  .section-spacing {
+    padding-top: var(--spacing-6xl);
+    padding-bottom: var(--spacing-6xl);
+  }
+}
+
+/* Enhanced Grid Layouts */
+.grid-responsive {
+  display: grid;
+  gap: var(--spacing-xl);
+}
+
+@media (min-width: 640px) {
+  .grid-responsive {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-2xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-responsive {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-3xl);
+  }
+}
+
+/* Improved Hover Effects */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
 }
 
 /* Accessibility improvements */
@@ -221,11 +384,42 @@ html {
   position: static;
   width: auto;
   height: auto;
-  padding: 0.5rem 1rem;
+  padding: var(--spacing-md) var(--spacing-lg);
   margin: 0;
   overflow: visible;
   clip: auto;
   white-space: normal;
+  background: var(--color-primary);
+  color: white;
+  border-radius: var(--radius-md);
+}
+
+/* Enhanced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print Optimizations */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+  
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
 }
 </style>
 
@@ -432,40 +626,40 @@ html {
 </section>
 
 <!-- About Section with Enhanced Semantic Structure -->
-<section id="about" class="py-16 md:py-24 bg-white relative overflow-hidden" role="main" aria-labelledby="about-heading">
+<section id="about" class="py-20 md:py-32 bg-white relative overflow-hidden" role="main" aria-labelledby="about-heading">
     <!-- Enhanced Background Pattern with Performance Optimization -->
     <div class="absolute inset-0 opacity-5" aria-hidden="true">
         <div class="absolute inset-0" style="background-image: radial-gradient(circle at 1px 1px, #e91e63 1px, transparent 0); background-size: 20px 20px; will-change: transform;"></div>
     </div>
     
-    <div class="container mx-auto px-4 sm:px-6 relative z-10">
+    <div class="container mx-auto px-6 lg:px-8 relative z-10">
         <!-- Enhanced Section Header -->
-        <div class="text-center mb-12 md:mb-16">
-            <span class="inline-block px-6 py-3 bg-rotaract-primary/10 text-rotaract-primary rounded-full text-sm font-semibold mb-4 border border-rotaract-primary/20 shadow-sm">
+        <div class="text-center mb-16 md:mb-20">
+            <span class="inline-block px-6 py-3 bg-rotaract-primary/10 text-rotaract-primary rounded-full text-sm font-semibold mb-6 border border-rotaract-primary/20 shadow-sm">
                 <i class="fas fa-heart mr-2" aria-hidden="true"></i>
                 About Rotaract North
             </span>
-            <h2 id="about-heading" class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight" role="heading" aria-level="2">
+            <h2 id="about-heading" class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 md:mb-8 leading-tight" role="heading" aria-level="2">
                 <span class="block">Who We Are</span>
-                <span class="block text-2xl sm:text-3xl md:text-4xl text-rotaract-primary font-medium">Building Tomorrow's Leaders</span>
+                <span class="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-rotaract-primary font-medium mt-2">Building Tomorrow's Leaders</span>
             </h2>
-            <div class="w-16 md:w-24 h-1 bg-gradient-to-r from-rotaract-primary to-rotaract-secondary mx-auto rounded-full shadow-sm"></div>
+            <div class="w-20 md:w-28 h-1.5 bg-gradient-to-r from-rotaract-primary to-rotaract-secondary mx-auto rounded-full shadow-sm"></div>
         </div>
         
         <!-- Enhanced Content Grid with Improved Typography -->
-        <div class="grid lg:grid-cols-2 gap-8 md:gap-16 items-center">
-            <div class="space-y-8">
+        <div class="grid lg:grid-cols-2 gap-12 md:gap-16 lg:gap-20 items-center">
+            <div class="space-y-10">
                 <!-- Enhanced Main Description -->
                 <div class="prose prose-lg text-gray-700 max-w-none">
-                    <p class="text-xl leading-relaxed mb-6 font-light text-gray-800">
+                    <p class="text-xl md:text-2xl leading-relaxed mb-8 font-light text-gray-800">
                         The <strong class="text-rotaract-primary font-semibold">Rotaract Club of Zamboanga City North</strong> is a vibrant youth-led 
                         community service organization based in Zamboanga City, Philippines. With over 
-                        <span class="font-bold text-rotaract-primary bg-rotaract-primary/10 px-2 py-1 rounded">75+ active members</span>, 
+                        <span class="font-bold text-rotaract-primary bg-rotaract-primary/10 px-3 py-1.5 rounded-lg">75+ active members</span>, 
                         our club is dedicated to service excellence, leadership development, and fostering 
                         positive change at the grassroots level.
                     </p>
-                    <p class="text-lg leading-relaxed text-gray-700">
-                        Founded under the sponsorship of <em class="text-rotaract-primary">Rotary International</em>, our club brings 
+                    <p class="text-lg md:text-xl leading-relaxed text-gray-700">
+                        Founded under the sponsorship of <em class="text-rotaract-primary font-medium">Rotary International</em>, our club brings 
                         together young professionals, students, and community members who 
                         share a passion for making a difference in areas like <strong>education</strong>,
                         <strong>health</strong>, <strong>environment</strong>, and <strong>youth empowerment</strong>.
@@ -474,35 +668,35 @@ html {
                 
                 <!-- Enhanced Feature Cards with Better Accessibility -->
                 <div class="grid md:grid-cols-2 gap-6" role="group" aria-label="Core values and mission areas">
-                    <div class="group p-6 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 hover:shadow-xl transition-all duration-300 hover:border-blue-300" role="article">
-                        <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-md" aria-hidden="true">
+                    <div class="group p-8 rounded-3xl bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200 hover:shadow-xl transition-all duration-300 hover:border-blue-300 hover:-translate-y-1" role="article">
+                        <div class="w-14 h-14 bg-blue-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md" aria-hidden="true">
                             <i class="fas fa-users text-white text-xl"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-gray-900 mb-2" role="heading" aria-level="3">Leadership Development</h3>
+                        <h3 class="text-lg font-bold text-gray-900 mb-3" role="heading" aria-level="3">Leadership Development</h3>
                         <p class="text-gray-600 text-sm leading-relaxed">Empowering future leaders through hands-on experience and mentorship programs</p>
                     </div>
                     
-                    <div class="group p-6 rounded-2xl bg-gradient-to-br from-green-50 to-green-100 border border-green-200 hover:shadow-xl transition-all duration-300 hover:border-green-300" role="article">
-                        <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-md" aria-hidden="true">
+                    <div class="group p-8 rounded-3xl bg-gradient-to-br from-green-50 to-green-100 border border-green-200 hover:shadow-xl transition-all duration-300 hover:border-green-300 hover:-translate-y-1" role="article">
+                        <div class="w-14 h-14 bg-green-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md" aria-hidden="true">
                             <i class="fas fa-heart text-white text-xl"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-gray-900 mb-2" role="heading" aria-level="3">Community Service</h3>
+                        <h3 class="text-lg font-bold text-gray-900 mb-3" role="heading" aria-level="3">Community Service</h3>
                         <p class="text-gray-600 text-sm leading-relaxed">Making a meaningful and lasting impact in our local communities</p>
                     </div>
                     
-                    <div class="group p-6 rounded-2xl bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 hover:shadow-xl transition-all duration-300 hover:border-purple-300" role="article">
-                        <div class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-md" aria-hidden="true">
+                    <div class="group p-8 rounded-3xl bg-gradient-to-br from-purple-50 to-purple-100 border border-purple-200 hover:shadow-xl transition-all duration-300 hover:border-purple-300 hover:-translate-y-1" role="article">
+                        <div class="w-14 h-14 bg-purple-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md" aria-hidden="true">
                             <i class="fas fa-handshake text-white text-xl"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-gray-900 mb-2" role="heading" aria-level="3">Professional Development</h3>
+                        <h3 class="text-lg font-bold text-gray-900 mb-3" role="heading" aria-level="3">Professional Development</h3>
                         <p class="text-gray-600 text-sm leading-relaxed">Building professional networks and career advancement opportunities</p>
                     </div>
                     
-                    <div class="group p-6 rounded-2xl bg-gradient-to-br from-orange-50 to-orange-100 border border-orange-200 hover:shadow-xl transition-all duration-300 hover:border-orange-300" role="article">
-                        <div class="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-md" aria-hidden="true">
+                    <div class="group p-8 rounded-3xl bg-gradient-to-br from-orange-50 to-orange-100 border border-orange-200 hover:shadow-xl transition-all duration-300 hover:border-orange-300 hover:-translate-y-1" role="article">
+                        <div class="w-14 h-14 bg-orange-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-md" aria-hidden="true">
                             <i class="fas fa-globe-americas text-white text-xl"></i>
                         </div>
-                        <h3 class="text-lg font-bold text-gray-900 mb-2" role="heading" aria-level="3">International Service</h3>
+                        <h3 class="text-lg font-bold text-gray-900 mb-3" role="heading" aria-level="3">International Service</h3>
                         <p class="text-gray-600 text-sm leading-relaxed">Connecting globally while serving locally through international partnerships</p>
                     </div>
                 </div>
@@ -544,56 +738,56 @@ html {
 </section>
 
 <!-- Officers Section -->
-<section id="officers" class="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
-    <div class="container mx-auto px-4 sm:px-6 relative z-10">
-        <div class="text-center mb-12 md:mb-16">
-            <span class="inline-block px-4 py-2 bg-rotaract-primary/10 text-rotaract-primary rounded-full text-sm font-semibold mb-4">
+<section id="officers" class="py-20 md:py-32 bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
+    <div class="container mx-auto px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16 md:mb-20">
+            <span class="inline-block px-6 py-3 bg-rotaract-primary/10 text-rotaract-primary rounded-full text-sm font-semibold mb-6">
                 Leadership Team
             </span>
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 md:mb-8">
                 Our Officers
             </h2>
-            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4 sm:px-0">
+            <p class="text-lg md:text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
                 Meet the dedicated leaders who drive our mission forward and inspire positive change in our community.
             </p>
-            <div class="w-16 md:w-24 h-1 bg-gradient-to-r from-rotaract-primary to-rotaract-secondary mx-auto mt-4 md:mt-6"></div>
+            <div class="w-20 md:w-28 h-1.5 bg-gradient-to-r from-rotaract-primary to-rotaract-secondary mx-auto mt-8 rounded-full"></div>
         </div>
         
         <!-- Club Advisor - Standalone Section -->
-        <div class="mb-16">
-            <div class="text-center mb-8">
-                <span class="inline-block px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold mb-3">
+        <div class="mb-20 md:mb-24">
+            <div class="text-center mb-12">
+                <span class="inline-block px-6 py-3 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold mb-6">
                     <i class="fas fa-star mr-2"></i>
                     Club Advisor
                 </span>
             </div>
             <div class="max-w-sm mx-auto">
-                <div class="group relative bg-gradient-to-br from-purple-50 via-indigo-50 to-purple-100 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-3 border-2 border-purple-200 hover:border-purple-300 relative overflow-hidden">
+                <div class="group relative bg-gradient-to-br from-purple-50 via-indigo-50 to-purple-100 rounded-3xl p-10 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 border-2 border-purple-200 hover:border-purple-300 relative overflow-hidden">
                     <!-- Decorative elements -->
-                    <div class="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg">
-                        <i class="fas fa-crown text-white text-sm"></i>
+                    <div class="absolute -top-6 -right-6 w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center shadow-lg">
+                        <i class="fas fa-crown text-white text-lg"></i>
                     </div>
-                    <div class="absolute top-4 left-4 w-6 h-6 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full opacity-20"></div>
-                    <div class="absolute bottom-4 right-4 w-4 h-4 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-full opacity-30"></div>
+                    <div class="absolute top-6 left-6 w-8 h-8 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full opacity-20"></div>
+                    <div class="absolute bottom-6 right-6 w-6 h-6 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-full opacity-30"></div>
                     
                     <div class="text-center relative z-10">
-                        <div class="relative inline-block mb-6">
-                            <div class="w-28 h-28 mx-auto bg-gradient-to-br from-purple-500 via-purple-600 to-indigo-700 rounded-2xl flex items-center justify-center text-white text-3xl font-bold shadow-2xl group-hover:scale-110 transition-transform duration-300 relative">
+                        <div class="relative inline-block mb-8">
+                            <div class="w-32 h-32 mx-auto bg-gradient-to-br from-purple-500 via-purple-600 to-indigo-700 rounded-3xl flex items-center justify-center text-white text-4xl font-bold shadow-2xl group-hover:scale-110 transition-transform duration-300 relative">
                                 <span class="bg-gradient-to-br from-white to-purple-100 bg-clip-text text-transparent">SM</span>
-                                <div class="absolute inset-0 bg-gradient-to-br from-purple-400/20 to-transparent rounded-2xl"></div>
+                                <div class="absolute inset-0 bg-gradient-to-br from-purple-400/20 to-transparent rounded-3xl"></div>
                             </div>
-                            <div class="absolute -bottom-2 -right-2 w-10 h-10 bg-gradient-to-br from-green-400 to-green-600 rounded-full border-4 border-white flex items-center justify-center shadow-lg">
-                                <i class="fas fa-check text-white"></i>
+                            <div class="absolute -bottom-3 -right-3 w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-full border-4 border-white flex items-center justify-center shadow-lg">
+                                <i class="fas fa-check text-white text-lg"></i>
                             </div>
                         </div>
-                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Sheena Mae Camins</h3>
-                        <p class="text-purple-600 font-bold text-lg mb-6 bg-purple-100 px-4 py-2 rounded-full inline-block">Club Advisor</p>
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Sheena Mae Camins</h3>
+                        <p class="text-purple-600 font-bold text-xl mb-8 bg-purple-100 px-6 py-3 rounded-full inline-block">Club Advisor</p>
                         <div class="flex justify-center space-x-4">
-                            <a href="#" class="w-10 h-10 bg-blue-500 rounded-xl flex items-center justify-center text-white hover:bg-blue-600 transition-all duration-200 hover:scale-110 shadow-lg">
-                                <i class="fab fa-linkedin"></i>
+                            <a href="#" class="w-12 h-12 bg-blue-500 rounded-2xl flex items-center justify-center text-white hover:bg-blue-600 transition-all duration-200 hover:scale-110 shadow-lg">
+                                <i class="fab fa-linkedin text-lg"></i>
                             </a>
-                            <a href="#" class="w-10 h-10 bg-gray-800 rounded-xl flex items-center justify-center text-white hover:bg-gray-900 transition-all duration-200 hover:scale-110 shadow-lg">
-                                <i class="fab fa-twitter"></i>
+                            <a href="#" class="w-12 h-12 bg-gray-800 rounded-2xl flex items-center justify-center text-white hover:bg-gray-900 transition-all duration-200 hover:scale-110 shadow-lg">
+                                <i class="fab fa-twitter text-lg"></i>
                             </a>
                         </div>
                     </div>
@@ -602,13 +796,13 @@ html {
         </div>
 
         <!-- Officers Grid -->
-        <div class="text-center mb-8">
-            <span class="inline-block px-4 py-2 bg-rotaract-primary/10 text-rotaract-primary rounded-full text-sm font-semibold mb-3">
+        <div class="text-center mb-12">
+            <span class="inline-block px-6 py-3 bg-rotaract-primary/10 text-rotaract-primary rounded-full text-sm font-semibold mb-6">
                 <i class="fas fa-users mr-2"></i>
                 Executive Officers
             </span>
         </div>
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
             
             <!-- President -->
             <div class="group relative bg-white rounded-2xl md:rounded-3xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100">
@@ -906,47 +1100,47 @@ html {
 </section>
 
 <!-- Projects Section with Enhanced Structure and Accessibility -->
-<section id="projects" class="py-16 md:py-24 bg-white relative overflow-hidden" role="main" aria-labelledby="projects-heading">
+<section id="projects" class="py-20 md:py-32 bg-white relative overflow-hidden" role="main" aria-labelledby="projects-heading">
     <!-- Enhanced Background Pattern -->
     <div class="absolute inset-0 opacity-3" aria-hidden="true">
         <div class="absolute inset-0" style="background-image: linear-gradient(45deg, #e91e63 1px, transparent 1px), linear-gradient(-45deg, #f6b116 1px, transparent 1px); background-size: 30px 30px; will-change: transform;"></div>
     </div>
     
-    <div class="container mx-auto px-4 sm:px-6 relative z-10">
+    <div class="container mx-auto px-6 lg:px-8 relative z-10">
         <!-- Enhanced Section Header -->
-        <div class="text-center mb-12 md:mb-16">
-            <span class="inline-block px-6 py-3 bg-rotaract-primary/10 text-rotaract-primary rounded-full text-sm font-semibold mb-4 border border-rotaract-primary/20 shadow-sm">
+        <div class="text-center mb-16 md:mb-20">
+            <span class="inline-block px-6 py-3 bg-rotaract-primary/10 text-rotaract-primary rounded-full text-sm font-semibold mb-6 border border-rotaract-primary/20 shadow-sm">
                 <i class="fas fa-heart-hand mr-2" aria-hidden="true"></i>
                 Our Community Impact
             </span>
-            <h2 id="projects-heading" class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight" role="heading" aria-level="2">
+            <h2 id="projects-heading" class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 md:mb-8 leading-tight" role="heading" aria-level="2">
                 <span class="block">Recent Projects</span>
-                <span class="block text-2xl sm:text-3xl md:text-4xl text-rotaract-primary font-medium">Making a Difference Together</span>
+                <span class="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-rotaract-primary font-medium mt-2">Making a Difference Together</span>
             </h2>
-            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4 sm:px-0 leading-relaxed">
+            <p class="text-lg md:text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
                 Discover how we're making a difference through meaningful community service projects and initiatives that create lasting positive change.
             </p>
-            <div class="w-16 md:w-24 h-1 bg-gradient-to-r from-rotaract-primary to-rotaract-secondary mx-auto mt-4 md:mt-6 rounded-full shadow-sm"></div>
+            <div class="w-20 md:w-28 h-1.5 bg-gradient-to-r from-rotaract-primary to-rotaract-secondary mx-auto mt-8 rounded-full shadow-sm"></div>
         </div>
         
         <!-- Enhanced Projects Grid with Improved Accessibility -->
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" role="group" aria-label="Community service projects showcase">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10" role="group" aria-label="Community service projects showcase">
             <!-- Enhanced Project 1: End Polio Walk -->
-            <article class="group bg-white rounded-2xl md:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 overflow-hidden hover:border-rotaract-primary/20" role="article">
+            <article class="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 overflow-hidden hover:border-rotaract-primary/20" role="article">
                <div class="relative aspect-square overflow-hidden">
                     <img src="img/end-polio-walk.jpg" alt="End Polio Walk project - Rotaract members participating in awareness campaign to eradicate polio" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                    <div class="absolute top-4 right-4 bg-rotaract-primary text-white px-3 py-1 rounded-full text-xs font-medium shadow-lg">
+                    <div class="absolute top-6 right-6 bg-rotaract-primary text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
                         Health Initiative
                     </div>
                 </div>
-                <div class="p-6 md:p-8">
-                    <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3 hover:text-rotaract-primary transition-colors duration-200" role="heading" aria-level="3">End Polio Walk</h3>
-                    <p class="text-xs md:text-sm text-gray-500 mb-3 md:mb-4 flex items-center">
-                        <i class="fas fa-calendar-alt mr-2 text-rotaract-primary" aria-hidden="true"></i>
+                <div class="p-8">
+                    <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-4 hover:text-rotaract-primary transition-colors duration-200" role="heading" aria-level="3">End Polio Walk</h3>
+                    <p class="text-sm md:text-base text-gray-500 mb-4 flex items-center">
+                        <i class="fas fa-calendar-alt mr-3 text-rotaract-primary" aria-hidden="true"></i>
                         <time datetime="2025-06-30">June 30, 2025</time>
                     </p>
-                    <p class="text-sm md:text-base text-gray-600 leading-relaxed mb-4 md:mb-6">
+                    <p class="text-base md:text-lg text-gray-600 leading-relaxed mb-6">
                         The Rotaract Club of Zamboanga City North participated in the End Polio 
                         Walk during District Conference 2025, raising awareness and uniting with 
                         fellow Rotaractors in the global fight to eradicate polio.
@@ -954,9 +1148,9 @@ html {
                     <div class="flex items-center justify-between">
                         <div class="flex items-center text-green-600" role="group" aria-label="Project impact">
                             <i class="fas fa-users mr-2" aria-hidden="true"></i>
-                            <span class="text-sm font-medium">81 Participants</span>
+                            <span class="text-sm font-medium">500+ Participants</span>
                         </div>
-                        <button class="text-rotaract-primary hover:text-rotaract-secondary transition-colors focus:ring-2 focus:ring-rotaract-primary/50 focus:outline-none rounded p-1" aria-label="View more details about End Polio Walk project">
+                        <button class="text-rotaract-primary hover:text-rotaract-secondary transition-colors focus:ring-2 focus:ring-rotaract-primary/50 focus:outline-none rounded-lg p-2" aria-label="View more details about End Polio Walk project">
                             <i class="fas fa-arrow-right" aria-hidden="true"></i>
                         </button>
                     </div>
@@ -964,21 +1158,21 @@ html {
             </article>
             
             <!-- Enhanced Project 2: Free Iftar -->
-            <article class="group bg-white rounded-2xl md:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 overflow-hidden hover:border-rotaract-primary/20" role="article">
+            <article class="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 overflow-hidden hover:border-rotaract-primary/20" role="article">
                <div class="relative aspect-square overflow-hidden">
                     <img src="img/free-iftar.jpg" alt="Free Iftar project - Community gathering celebrating Ramadan with shared meals and unity" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                    <div class="absolute top-4 right-4 bg-purple-500 text-white px-3 py-1 rounded-full text-xs font-medium shadow-lg">
+                    <div class="absolute top-6 right-6 bg-purple-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
                         Community Unity
                     </div>
                 </div>
-                <div class="p-6 md:p-8">
-                    <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3 hover:text-rotaract-primary transition-colors duration-200" role="heading" aria-level="3">Free Iftar</h3>
-                    <p class="text-xs md:text-sm text-gray-500 mb-3 md:mb-4 flex items-center">
-                        <i class="fas fa-calendar-alt mr-2 text-rotaract-primary" aria-hidden="true"></i>
+                <div class="p-8">
+                    <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-4 hover:text-rotaract-primary transition-colors duration-200" role="heading" aria-level="3">Free Iftar</h3>
+                    <p class="text-sm md:text-base text-gray-500 mb-4 flex items-center">
+                        <i class="fas fa-calendar-alt mr-3 text-rotaract-primary" aria-hidden="true"></i>
                         <time datetime="2025-03-23">March 23, 2025</time>
                     </p>
-                    <p class="text-sm md:text-base text-gray-600 leading-relaxed mb-4 md:mb-6">
+                    <p class="text-base md:text-lg text-gray-600 leading-relaxed mb-6">
                         The Rotaract Club of Zamboanga City North partnered with Backride 
                         Pinas to host a Free Iftar event at Pasonanca's Butterfly Garden, 
                         celebrating Ramadan and bringing the community together through 
@@ -989,7 +1183,7 @@ html {
                             <i class="fas fa-heart mr-2" aria-hidden="true"></i>
                             <span class="text-sm font-medium">50+ People Served</span>
                         </div>
-                        <button class="text-rotaract-primary hover:text-rotaract-secondary transition-colors focus:ring-2 focus:ring-rotaract-primary/50 focus:outline-none rounded p-1" aria-label="View more details about Free Iftar project">
+                        <button class="text-rotaract-primary hover:text-rotaract-secondary transition-colors focus:ring-2 focus:ring-rotaract-primary/50 focus:outline-none rounded-lg p-2" aria-label="View more details about Free Iftar project">
                             <i class="fas fa-arrow-right" aria-hidden="true"></i>
                         </button>
                     </div>
@@ -997,21 +1191,21 @@ html {
             </article>
             
             <!-- Enhanced Project 3: Learn To Read -->
-            <article class="group bg-white rounded-2xl md:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 overflow-hidden hover:border-rotaract-primary/20" role="article">
+            <article class="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 overflow-hidden hover:border-rotaract-primary/20" role="article">
                 <div class="relative aspect-square overflow-hidden">
                     <img src="img/learn-to-read.jpg" alt="Learn to Read project - Educational initiative helping community members develop literacy skills" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                    <div class="absolute top-4 right-4 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-medium shadow-lg">
+                    <div class="absolute top-6 right-6 bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
                         Education Focus
                     </div>
                 </div>
-                <div class="p-6 md:p-8">
-                    <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3 hover:text-rotaract-primary transition-colors duration-200" role="heading" aria-level="3">Learn To Read</h3>
-                    <p class="text-xs md:text-sm text-gray-500 mb-3 md:mb-4 flex items-center">
-                        <i class="fas fa-calendar-alt mr-2 text-rotaract-primary" aria-hidden="true"></i>
+                <div class="p-8">
+                    <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-4 hover:text-rotaract-primary transition-colors duration-200" role="heading" aria-level="3">Learn To Read</h3>
+                    <p class="text-sm md:text-base text-gray-500 mb-4 flex items-center">
+                        <i class="fas fa-calendar-alt mr-3 text-rotaract-primary" aria-hidden="true"></i>
                         <time datetime="2024-10-05">October 2024 - March 2025</time>
                     </p>
-                    <p class="text-sm md:text-base text-gray-600 leading-relaxed mb-4 md:mb-6">
+                    <p class="text-base md:text-lg text-gray-600 leading-relaxed mb-6">
                         The legacy continues as the Rotaract Club of Zamboanga City North's flagship project 
                         "Learn to Read, Read to Learn", started its marvelous fifth (5th) year on October 5,
                          2024, and ended on March 9, 2025, at Salum Elementary School.
@@ -1021,7 +1215,7 @@ html {
                             <i class="fas fa-book mr-2" aria-hidden="true"></i>
                             <span class="text-sm font-medium">25+ Students</span>
                         </div>
-                        <button class="text-rotaract-primary hover:text-rotaract-secondary transition-colors focus:ring-2 focus:ring-rotaract-primary/50 focus:outline-none rounded p-1" aria-label="View more details about Learn to Read project">
+                        <button class="text-rotaract-primary hover:text-rotaract-secondary transition-colors focus:ring-2 focus:ring-rotaract-primary/50 focus:outline-none rounded-lg p-2" aria-label="View more details about Learn to Read project">
                             <i class="fas fa-arrow-right" aria-hidden="true"></i>
                         </button>
                     </div>
@@ -1029,21 +1223,21 @@ html {
             </article>
             
             <!-- Enhanced Project 4: Mi Sangre Tu Vida -->
-            <article class="group bg-white rounded-2xl md:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 overflow-hidden hover:border-rotaract-primary/20" role="article">
+            <article class="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 overflow-hidden hover:border-rotaract-primary/20" role="article">
                 <div class="relative aspect-square overflow-hidden">
                     <img src="img/mi-sangre.jpg" alt="Mi Sangre Tu Vida project - Blood donation drive and free medical consultation helping save lives in the community" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                    <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-medium shadow-lg">
+                    <div class="absolute top-6 right-6 bg-red-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
                         Health Initiative
                     </div>
                 </div>
-                <div class="p-6 md:p-8">
-                    <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3 hover:text-rotaract-primary transition-colors duration-200" role="heading" aria-level="3">Mi Sangre Tu Vida</h3>
-                    <p class="text-xs md:text-sm text-gray-500 mb-3 md:mb-4 flex items-center">
-                        <i class="fas fa-calendar-alt mr-2 text-rotaract-primary" aria-hidden="true"></i>
+                <div class="p-8">
+                    <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-4 hover:text-rotaract-primary transition-colors duration-200" role="heading" aria-level="3">Mi Sangre Tu Vida</h3>
+                    <p class="text-sm md:text-base text-gray-500 mb-4 flex items-center">
+                        <i class="fas fa-calendar-alt mr-3 text-rotaract-primary" aria-hidden="true"></i>
                         <time datetime="2024-04-15">April 15, 2024</time>
                     </p>
-                    <p class="text-sm md:text-base text-gray-600 leading-relaxed mb-4 md:mb-6">
+                    <p class="text-base md:text-lg text-gray-600 leading-relaxed mb-6">
                         The Philippine Red Cross hosted a bloodletting activity where Zamboangueños 
                         were invited to donate their blood for a cause. Held at Citimall, Tetuan,
                         the Rotary Club of Zamboanga City North also provided free 
@@ -1054,7 +1248,7 @@ html {
                             <i class="fas fa-heart mr-2" aria-hidden="true"></i>
                             <span class="text-sm font-medium">75+ Blood Donors</span>
                         </div>
-                        <button class="text-rotaract-primary hover:text-rotaract-secondary transition-colors focus:ring-2 focus:ring-rotaract-primary/50 focus:outline-none rounded p-1" aria-label="View more details about Mi Sangre Tu Vida project">
+                        <button class="text-rotaract-primary hover:text-rotaract-secondary transition-colors focus:ring-2 focus:ring-rotaract-primary/50 focus:outline-none rounded-lg p-2" aria-label="View more details about Mi Sangre Tu Vida project">
                             <i class="fas fa-arrow-right" aria-hidden="true"></i>
                         </button>
                     </div>
@@ -1096,21 +1290,21 @@ html {
             </article>
             
             <!-- Enhanced Project 6: Mi Pascua Y Tuyu Tambien -->
-            <article class="group bg-white rounded-2xl md:rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 overflow-hidden hover:border-rotaract-primary/20" role="article">
+            <article class="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100 overflow-hidden hover:border-rotaract-primary/20" role="article">
                 <div class="relative aspect-square overflow-hidden">
                     <img src="img/mi-pascua.jpg" alt="Mi Pascua Y Tuyu Tambien project - Annual Easter celebration bringing joy to children at Tolosa Elementary School" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" loading="lazy">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-                    <div class="absolute top-4 right-4 bg-indigo-500 text-white px-3 py-1 rounded-full text-xs font-medium shadow-lg">
+                    <div class="absolute top-6 right-6 bg-indigo-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg">
                         Community Joy
                     </div>
                 </div>
-                <div class="p-6 md:p-8">
-                    <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3 hover:text-rotaract-primary transition-colors duration-200" role="heading" aria-level="3">Mi Pascua Y Tuyu Tambien</h3>
-                    <p class="text-xs md:text-sm text-gray-500 mb-3 md:mb-4 flex items-center">
-                        <i class="fas fa-calendar-alt mr-2 text-rotaract-primary" aria-hidden="true"></i>
+                <div class="p-8">
+                    <h3 class="text-xl md:text-2xl font-bold text-gray-900 mb-4 hover:text-rotaract-primary transition-colors duration-200" role="heading" aria-level="3">Mi Pascua Y Tuyu Tambien</h3>
+                    <p class="text-sm md:text-base text-gray-500 mb-4 flex items-center">
+                        <i class="fas fa-calendar-alt mr-3 text-rotaract-primary" aria-hidden="true"></i>
                         <time datetime="2024-06-15">June 2024</time>
                     </p>
-                    <p class="text-sm md:text-base text-gray-600 leading-relaxed mb-4 md:mb-6">
+                    <p class="text-base md:text-lg text-gray-600 leading-relaxed mb-6">
                         For 20 YEARS, The Rotary Club of Zamboanga City North 
                         and Rotary Anns Club of Zamboanga City North has been a 
                         beacon of service with this project, and for 9 YEARS, we
@@ -1123,7 +1317,7 @@ html {
                             <i class="fas fa-gift mr-2" aria-hidden="true"></i>
                             <span class="text-sm font-medium">75+ Children</span>
                         </div>
-                        <button class="text-rotaract-primary hover:text-rotaract-secondary transition-colors focus:ring-2 focus:ring-rotaract-primary/50 focus:outline-none rounded p-1" aria-label="View more details about Mi Pascua Y Tuyu Tambien project">
+                        <button class="text-rotaract-primary hover:text-rotaract-secondary transition-colors focus:ring-2 focus:ring-rotaract-primary/50 focus:outline-none rounded-lg p-2" aria-label="View more details about Mi Pascua Y Tuyu Tambien project">
                             <i class="fas fa-arrow-right" aria-hidden="true"></i>
                         </button>
                     </div>
@@ -1144,55 +1338,55 @@ html {
 </section>
 
 <!-- Gallery Section -->
-<section id="gallery" class="py-24 bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
-    <div class="container mx-auto px-6 relative z-10">
-        <div class="text-center mb-16">
-            <span class="inline-block px-4 py-2 bg-rotaract-primary/10 text-rotaract-primary rounded-full text-sm font-semibold mb-4">
+<section id="gallery" class="py-20 md:py-32 bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
+    <div class="container mx-auto px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16 md:mb-20">
+            <span class="inline-block px-6 py-3 bg-rotaract-primary/10 text-rotaract-primary rounded-full text-sm font-semibold mb-6">
                 Our Moments
             </span>
-            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 md:mb-8">
                 Gallery
             </h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p class="text-lg md:text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
                 Capturing memories and moments from our community service projects and events.
             </p>
-            <div class="w-24 h-1 bg-gradient-to-r from-rotaract-primary to-rotaract-secondary mx-auto mt-6"></div>
+            <div class="w-20 md:w-28 h-1.5 bg-gradient-to-r from-rotaract-primary to-rotaract-secondary mx-auto mt-8 rounded-full"></div>
         </div>
         
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-12">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 mb-16">
             <!-- Image 1 - End Polio Walk -->
-            <div class="group relative rounded-2xl aspect-square overflow-hidden cursor-pointer">
+            <div class="group relative rounded-3xl aspect-square overflow-hidden cursor-pointer hover:-translate-y-2 transition-all duration-300">
                 <img src="img/end-polio-walk.jpg" alt="End Polio Walk" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
                 <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300"></div>
-                <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p class="text-sm font-medium">End Polio Walk</p>
+                <div class="absolute bottom-6 left-6 right-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-base font-medium">End Polio Walk</p>
                 </div>
-                <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <i class="fas fa-expand-alt text-white"></i>
+                <div class="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <i class="fas fa-expand-alt text-white text-lg"></i>
                 </div>
             </div>
             
             <!-- Image 2 - Free Iftar -->
-            <div class="group relative rounded-2xl aspect-square overflow-hidden cursor-pointer">
+            <div class="group relative rounded-3xl aspect-square overflow-hidden cursor-pointer hover:-translate-y-2 transition-all duration-300">
                 <img src="img/free-iftar.jpg" alt="Free Iftar" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
                 <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300"></div>
-                <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p class="text-sm font-medium">Free Iftar</p>
+                <div class="absolute bottom-6 left-6 right-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-base font-medium">Free Iftar</p>
                 </div>
-                <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <i class="fas fa-expand-alt text-white"></i>
+                <div class="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <i class="fas fa-expand-alt text-white text-lg"></i>
                 </div>
             </div>
             
             <!-- Image 3 - Learn to Read -->
-            <div class="group relative rounded-2xl aspect-square overflow-hidden cursor-pointer">
+            <div class="group relative rounded-3xl aspect-square overflow-hidden cursor-pointer hover:-translate-y-2 transition-all duration-300">
                 <img src="img/learn-to-read.jpg" alt="Learn to Read" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
                 <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300"></div>
-                <div class="absolute bottom-4 left-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p class="text-sm font-medium">Learn to Read</p>
+                <div class="absolute bottom-6 left-6 right-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p class="text-base font-medium">Learn to Read</p>
                 </div>
-                <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <i class="fas fa-expand-alt text-white"></i>
+                <div class="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <i class="fas fa-expand-alt text-white text-lg"></i>
                 </div>
             </div>
             
@@ -1267,36 +1461,36 @@ html {
 </section>
 
 <!-- Join Us Section -->
-<section class="py-24 bg-gradient-to-br from-rotaract-primary via-purple-600 to-rotaract-secondary relative overflow-hidden">
+<section class="py-20 md:py-32 bg-gradient-to-br from-rotaract-primary via-purple-600 to-rotaract-secondary relative overflow-hidden">
     <!-- Background Elements -->
     <div class="absolute inset-0 overflow-hidden">
         <div class="absolute -top-40 -right-40 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
         <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
     </div>
     
-    <div class="container mx-auto px-6 relative z-10">
+    <div class="container mx-auto px-6 lg:px-8 relative z-10">
         <div class="text-center max-w-4xl mx-auto">
-            <span class="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-full text-sm font-semibold mb-6">
+            <span class="inline-block px-6 py-3 bg-white/20 backdrop-blur-sm text-white rounded-full text-sm font-semibold mb-6">
                 <i class="fas fa-handshake mr-2"></i>
                 Join Our Community
             </span>
-            <h2 class="text-4xl md:text-6xl font-bold text-white mb-8">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 md:mb-8">
                 Ready to Make a 
                 <span class="block bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
                     Difference?
                 </span>
             </h2>
-            <p class="text-xl md:text-2xl text-white/90 mb-12 leading-relaxed">
+            <p class="text-lg md:text-xl lg:text-2xl text-white/90 mb-12 md:mb-16 leading-relaxed">
                 Be part of a dynamic community of young leaders making a difference in Zamboanga City North. 
                 Together, we can create positive change and build a better future for our community.
             </p>
             
-            <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                <a href="#contact" class="group bg-white text-rotaract-primary px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transform hover:-translate-y-1 transition-all duration-300 shadow-2xl">
+            <div class="flex flex-col sm:flex-row gap-6 md:gap-8 justify-center">
+                <a href="#contact" class="group bg-white text-rotaract-primary px-8 py-4 md:py-5 rounded-full font-bold text-lg hover:bg-gray-100 transform hover:-translate-y-1 transition-all duration-300 shadow-2xl">
                     <span class="mr-2">Get Involved Today</span>
                     <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform duration-200"></i>
                 </a>
-                <a href="#about" class="group border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-rotaract-primary transform hover:-translate-y-1 transition-all duration-300">
+                <a href="#about" class="group border-2 border-white text-white px-8 py-4 md:py-5 rounded-full font-bold text-lg hover:bg-white hover:text-rotaract-primary transform hover:-translate-y-1 transition-all duration-300">
                     <span class="mr-2">Learn More</span>
                     <i class="fas fa-info-circle group-hover:scale-110 transition-transform duration-200"></i>
                 </a>
@@ -1306,41 +1500,41 @@ html {
 </section>
 
 <!-- Contact Section with Enhanced Accessibility and Modern Design -->
-<section id="contact" class="py-24 bg-white relative overflow-hidden" role="main" aria-labelledby="contact-heading">
+<section id="contact" class="py-20 md:py-32 bg-white relative overflow-hidden" role="main" aria-labelledby="contact-heading">
     <!-- Enhanced Background Pattern -->
     <div class="absolute inset-0 opacity-3" aria-hidden="true">
         <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, #e91e63 2px, transparent 0); background-size: 40px 40px; will-change: transform;"></div>
     </div>
     
-    <div class="container mx-auto px-6 relative z-10">
+    <div class="container mx-auto px-6 lg:px-8 relative z-10">
         <!-- Enhanced Section Header -->
-        <div class="text-center mb-16">
-            <span class="inline-block px-6 py-3 bg-rotaract-primary/10 text-rotaract-primary rounded-full text-sm font-semibold mb-4 border border-rotaract-primary/20 shadow-sm">
+        <div class="text-center mb-16 md:mb-20">
+            <span class="inline-block px-6 py-3 bg-rotaract-primary/10 text-rotaract-primary rounded-full text-sm font-semibold mb-6 border border-rotaract-primary/20 shadow-sm">
                 <i class="fas fa-envelope-open-text mr-2" aria-hidden="true"></i>
                 Get In Touch
             </span>
-            <h2 id="contact-heading" class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight" role="heading" aria-level="2">
+            <h2 id="contact-heading" class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 md:mb-8 leading-tight" role="heading" aria-level="2">
                 <span class="block">Contact Us</span>
-                <span class="block text-3xl md:text-4xl text-rotaract-primary font-medium">Join Our Mission Today</span>
+                <span class="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-rotaract-primary font-medium mt-2">Join Our Mission Today</span>
             </h2>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p class="text-lg md:text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
                 Ready to join our mission of service and leadership? We'd love to hear from you and welcome you to our community.
             </p>
-            <div class="w-24 h-1 bg-gradient-to-r from-rotaract-primary to-rotaract-secondary mx-auto mt-6 rounded-full shadow-sm"></div>
+            <div class="w-20 md:w-28 h-1.5 bg-gradient-to-r from-rotaract-primary to-rotaract-secondary mx-auto mt-8 rounded-full shadow-sm"></div>
         </div>
         
         <!-- Enhanced Contact Grid -->
-        <div class="max-w-4xl mx-auto grid lg:grid-cols-2 gap-16">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 md:gap-16 lg:gap-20">
             <!-- Enhanced Contact Information -->
-            <div class="space-y-8">
-                <div class="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 shadow-lg relative overflow-hidden border border-gray-100">
+            <div class="space-y-10">
+                <div class="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-10 shadow-lg relative overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300">
                     <!-- Enhanced Background Pattern -->
                     <div class="absolute inset-0 opacity-5" aria-hidden="true">
                         <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, #e91e63 2px, transparent 0); background-size: 40px 40px; will-change: transform;"></div>
                     </div>
                     
                     <div class="relative z-10">
-                        <h3 class="text-2xl font-bold text-gray-900 mb-8" role="heading" aria-level="3">Let's Connect</h3>
+                        <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-10" role="heading" aria-level="3">Let's Connect</h3>
                     
                     <div class="space-y-6" role="list" aria-label="Contact information">
                         <div class="flex items-start space-x-4" role="listitem">
